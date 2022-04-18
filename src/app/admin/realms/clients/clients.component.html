@@ -1,0 +1,24 @@
+<form>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Client Id</th>
+      <th scope="col">Authorization Grant Types</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let client of model_data">
+      <td><a><ngb-highlight [result]="client.client_id" (click)="openClientPage(client.client_id)"  class="btn"></ngb-highlight></a></td>
+      <td>
+        <span *ngFor="let authType of client.authorizationGrantTypes">{{authType}}<br></span>
+      </td>
+      <td>
+        <a (click)="edit(client.client_id)" class="btn btn-success">Edit</a>
+        <a (click)="delete(client.client_id)" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <app-pagination [service]="clientService" (model_data)="setModelData($event)"></app-pagination>
+</form>
