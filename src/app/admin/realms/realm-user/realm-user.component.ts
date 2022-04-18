@@ -13,6 +13,7 @@ import {GlobalStateService} from "../../../_services/global-state.service";
 export class RealmUserComponent implements OnInit {
   private subscription: Subscription;
   public model_data!: UserModel[];
+  public realm!:string;
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -20,7 +21,8 @@ export class RealmUserComponent implements OnInit {
     private globalStateService: GlobalStateService
   ) {
     this.subscription = activateRoute.params.subscribe(params => {
-      this.globalStateService.realm = params['realm']
+      this.globalStateService.realm = params['realm'];
+      this.realm= params['realm'];
     });
   }
 

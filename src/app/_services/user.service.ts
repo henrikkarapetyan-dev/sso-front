@@ -20,4 +20,9 @@ export class UserService {
       .set('limit', limit);
     return this.http.get<PaginatedModel<ClientModel[]>>(`${environment.apiUrl}/admin/${realm}/user/list`, {params});
   }
+
+  addNew(data:any) {
+    let realm = this.globalStateService.realm;
+    return this.http.post<PaginatedModel<ClientModel[]>>(`${environment.apiUrl}/admin/${realm}/user`, data);
+  }
 }

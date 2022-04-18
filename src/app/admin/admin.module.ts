@@ -14,6 +14,7 @@ import { RealmUserComponent } from './realms/realm-user/realm-user.component';
 import { UsersComponent } from './users/users.component';
 import { RolesComponent } from './roles/roles.component';
 import { ScopesComponent } from './scopes/scopes.component';
+import { AddUserComponent } from './realms/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ScopesComponent } from './scopes/scopes.component';
     RealmUserComponent,
     UsersComponent,
     RolesComponent,
-    ScopesComponent
+    ScopesComponent,
+    AddUserComponent
   ],
   imports: [
     CommonModule,
