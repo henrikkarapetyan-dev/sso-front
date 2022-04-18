@@ -15,6 +15,7 @@ import { UsersComponent } from './users/users.component';
 import { RolesComponent } from './roles/roles.component';
 import { ScopesComponent } from './scopes/scopes.component';
 import { AddUserComponent } from './realms/add-user/add-user.component';
+import { UserControlComponent } from './realms/user-control/user-control.component';
 
 @NgModule({
   declarations: [

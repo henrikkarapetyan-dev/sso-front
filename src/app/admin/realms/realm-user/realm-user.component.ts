@@ -48,9 +48,4 @@ export class RealmUserComponent implements OnInit {
   setModelData($event: any[]) {
     this.model_data = $event
   }
-
-  openUserPage(uuid: string) {
-
-  }
-
 }
