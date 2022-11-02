@@ -1,0 +1,14 @@
+<form [formGroup]="formGroup" (ngSubmit)="submitForm()">
+  <div class="mb-3">
+    <label for="name">Name</label>
+    <div class="input-group">
+      <div *ngIf="submitted && formControl['name'].errors" class="text-danger">
+        <div *ngIf="formControl['name'].errors['required']">Name is required.</div>
+      </div>
+      <input id="name" class="form-control" formControlName="name">
+    </div>
+  </div>
+  <div class="buttons text-center">
+    <button class="btn btn-success" type="submit">Add</button>
+  </div>
+</form>
