@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {ClientModel} from "../../../_models/client.model";
 import {ClientsService} from "../../../_services/admin/clients.service";
@@ -14,14 +14,17 @@ export class ClientsComponent implements OnInit {
 
   private subscription: Subscription;
   public model_data!: ClientModel[];
+  realm!: string;
 
   constructor(
+    private router:Router,
     private activateRoute: ActivatedRoute,
     public clientService: ClientsService,
     private globalStateService: GlobalStateService
   ) {
     this.subscription = activateRoute.params.subscribe(params => {
-      this.globalStateService.realm = params['realm']
+      this.globalStateService.realm = params['realm'];
+      this.realm = globalStateService.realm;
     });
   }
 
@@ -33,19 +36,19 @@ export class ClientsComponent implements OnInit {
 
   }
 
-  edit(realmId: any) {
-
+  edit(uuid: any) {
+    this.router.navigate(["/admin/" + this.globalStateService.realm + "/client/detail-view/"+uuid]);
   }
 
-  delete(realmId: any) {
-
-  }
-
-  openClientPage(realmId: any) {
-
+  delete(uuid: any) {
+    console.log(uuid)
+    this.clientService.delete(uuid).subscribe(data=>{
+      window.location.reload();
+    });
   }
 
   setModelData($event: any[]) {
+    console.log($event)
     this.model_data = $event
   }
 }

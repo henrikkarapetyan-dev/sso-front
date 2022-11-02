@@ -11,7 +11,9 @@ import {TokenStorageService} from "./token-storage.service";
 })
 export class AuthenticationService {
   get isLoggedIn(): boolean {
-    return !!this.tokenStorageService.getToken();
+    let b = !!this.tokenStorageService.getToken();
+    console.log("user is logged in \t",b)
+    return b;
   }
 
   get isEmptyUserData(): boolean {

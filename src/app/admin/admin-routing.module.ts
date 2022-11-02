@@ -9,9 +9,10 @@ import {UsersComponent} from "./users/users.component";
 import {ScopesComponent} from "./scopes/scopes.component";
 import {RolesComponent} from "./roles/roles.component";
 import {AddUserComponent} from "./realms/add-user/add-user.component";
-import {AdminComponent} from "./admin.component";
 import {AuthGuard} from "../_guard/auth.guard";
 import {UserControlComponent} from "./realms/user-control/user-control.component";
+import {ClientAddComponent} from "./realms/client-add/client-add.component";
+import {ClientDetailsComponent} from "./realms/client-details/client-details.component";
 
 const routes: Routes = [
   {path: 'users', component: UsersComponent},
@@ -19,16 +20,20 @@ const routes: Routes = [
   {path: 'roles', component: RolesComponent},
   {path: 'scopes', component: ScopesComponent},
   {path: ':realm/clients', component: ClientsComponent},
+  {path: ':realm/client/add', component: ClientAddComponent},
+  {path: ':realm/client/detail-view/:id', component: ClientDetailsComponent},
   {path: ':realm/detail-view', component: DetailViewComponent},
   {path: ':realm/users', component: RealmUserComponent},
   {path: ':realm/user/add', component: AddUserComponent},
   {path: ':realm/options', component: OptionsComponent},
   {
-    path: ':realm/user-control', component: UserControlComponent,
-    loadChildren: () => import('./realms/user-control/user-control-routing.module').then(m => m.UserControlRoutingModule), canActivate: [AuthGuard]
+    path: ':realm/user-control/:id',
+    component: UserControlComponent,
+    loadChildren: () => import('./realms/user-control/user-control-routing.module').then(m => m.UserControlRoutingModule),
+    canActivate: [AuthGuard]
   },
-  {path: '', redirectTo:"/admin/realms"},
-  {path: '*', redirectTo:"/not-found"}
+  {path: '', redirectTo: "/admin/realms"},
+  {path: '*', redirectTo: "/not-found"}
 ];
 
 @NgModule({

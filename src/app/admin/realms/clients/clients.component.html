@@ -1,3 +1,4 @@
+<a class="btn btn-lg btn-outline-primary"  routerLink="/admin/{{realm}}/client/add">Add new client</a>
 <form>
   <table class="table table-striped">
     <thead>
@@ -9,13 +10,12 @@
     </thead>
     <tbody>
     <tr *ngFor="let client of model_data">
-      <td><a><ngb-highlight [result]="client.client_id" (click)="openClientPage(client.client_id)"  class="btn"></ngb-highlight></a></td>
+      <td><a><ngb-highlight [result]="client.client_id" (click)="edit(client.uuid)"  class="btn"></ngb-highlight></a></td>
       <td>
         <span *ngFor="let authType of client.authorizationGrantTypes">{{authType}}<br></span>
       </td>
       <td>
-        <a (click)="edit(client.client_id)" class="btn btn-success">Edit</a>
-        <a (click)="delete(client.client_id)" class="btn btn-danger">Delete</a>
+        <a (click)="delete(client.uuid)" class="btn btn-danger">Delete</a>
       </td>
     </tr>
     </tbody>

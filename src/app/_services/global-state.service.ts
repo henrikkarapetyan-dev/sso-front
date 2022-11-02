@@ -6,6 +6,7 @@ import {Injectable} from '@angular/core';
 export class GlobalStateService {
 
   private _realm!: string;
+  private _user_id!: string;
 
   constructor() {
   }
@@ -16,5 +17,14 @@ export class GlobalStateService {
 
   set realm(value: string) {
     this._realm = value;
+  }
+
+
+  get user_id(): string {
+    return this._user_id;
+  }
+
+  set user_id(value: string) {
+    this._user_id = value;
   }
 }

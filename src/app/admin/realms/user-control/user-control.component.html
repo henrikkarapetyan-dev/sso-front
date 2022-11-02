@@ -1,1 +1,22 @@
-<p>user-control works!</p>
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+  <li [ngbNavItem]="1">
+    <a ngbNavLink routerLinkActive="/admin/{{realm}}}/user-control/{{user_id}}" >User Details</a>
+    <ng-template ngbNavContent>
+      <app-user-details [realm]="realm" [user_id]="user_id"></app-user-details>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="2">
+    <a ngbNavLink routerLinkActive="/admin/{{realm}}}/user-control/{{user_id}}/edit-password">Edit password</a>
+    <ng-template ngbNavContent>
+      <app-edit-password [realm]="realm" [user_id]="user_id"></app-edit-password>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="3">
+    <a ngbNavLink routerLinkActive="/admin/{{realm}}}/user-control/{{user_id}}/edit-user-attributes">Edit User Attributes</a>
+    <ng-template ngbNavContent>
+      <app-edit-user-attributes [realm]="realm" [user_id]="user_id"></app-edit-user-attributes>
+    </ng-template>
+  </li>
+</ul>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>

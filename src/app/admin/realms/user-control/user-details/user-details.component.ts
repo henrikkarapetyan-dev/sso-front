@@ -1,9 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Subscription} from "rxjs";
-import {FormBuilder} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
+import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from "../../../../_services/user.service";
-import {GlobalStateService} from "../../../../_services/global-state.service";
+import {UserModel} from "../../../../_models/user.model";
 
 @Component({
   selector: 'app-user-details',
@@ -12,23 +9,22 @@ import {GlobalStateService} from "../../../../_services/global-state.service";
 })
 export class UserDetailsComponent implements OnInit {
 
-  private subscription: Subscription;
-  submitted!: boolean;
-  private user_id!: string;
+  @Input() user_id!: string;
+  @Input() realm!: string;
+  userData!: UserModel;
 
-  constructor(
-    private activateRoute: ActivatedRoute,
-    private userService: UserService,
-    private globalStateService: GlobalStateService,
-    private fb: FormBuilder
-  ) {
-    this.subscription = activateRoute.params.subscribe(params => {
-      this.globalStateService.realm = params['realm']
-      this.user_id = params['id']
-    });
+  constructor(private userService: UserService) {
   }
 
   ngOnInit(): void {
+    this.userService.getOne(this.realm, this.user_id).subscribe(data => {
+      this.userData = data;
+    });
   }
 
+  updateUserInfo() {
+    this.userService.update(this.realm, this.user_id, this.userData).subscribe(data => {
+      this.userData = data;
+    });
+  }
 }

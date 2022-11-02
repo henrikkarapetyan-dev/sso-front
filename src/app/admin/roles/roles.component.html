@@ -1,1 +1,45 @@
-<p>roles works!</p>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">New role</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formGroup" (ngSubmit)="submitForm(modal)">
+      <div class="mb-3">
+        <label for="name" >Name</label>
+        <div class="input-group">
+          <div *ngIf="submitted && formControl['name'].errors" class="text-danger">
+            <div *ngIf="formControl['name'].errors['required']">Name is required.</div>
+          </div>
+          <input id="name" class="form-control" formControlName="name">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-outline-dark" >Save</button>
+    </form>
+  </div>
+
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Create new role</button>
+
+<form>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Role Id</th>
+      <th scope="col" sortable="name" (sort)="onSort($event)">Name</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let role of model_data">
+      <td><a><ngb-highlight [result]="role.uuid"  class="btn"></ngb-highlight></a></td>
+      <td><ngb-highlight [result]="role.name"></ngb-highlight></td>
+      <td>
+        <a (click)="delete(role.uuid)" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <app-pagination [service]="roleService" (model_data)="setModelData($event)"></app-pagination>
+</form>

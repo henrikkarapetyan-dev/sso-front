@@ -5,14 +5,13 @@ export class UserModel {
   private _realmId!: string;
   private _username!: string;
   private _email!: string;
+  private _phone!: string;
   private _accountExpired!: boolean;
   private _accountLocked!: boolean;
   private _credentialsExpired!: boolean;
   private _enabled!: boolean;
   private _emailVerified!: boolean;
-  private _accountNonExpired!: boolean;
-  private _accountNonLocked!: boolean;
-  private _credentialsNonExpired!: boolean;
+  private _phoneVerified!: boolean;
   private _user_roles!: string[];
 
   get uuid(): string {
@@ -107,35 +106,27 @@ export class UserModel {
     this._emailVerified = value;
   }
 
-  get accountNonExpired(): boolean {
-    return this._accountNonExpired;
-  }
-
-  set accountNonExpired(value: boolean) {
-    this._accountNonExpired = value;
-  }
-
-  get accountNonLocked(): boolean {
-    return this._accountNonLocked;
-  }
-
-  set accountNonLocked(value: boolean) {
-    this._accountNonLocked = value;
-  }
-
-  get credentialsNonExpired(): boolean {
-    return this._credentialsNonExpired;
-  }
-
-  set credentialsNonExpired(value: boolean) {
-    this._credentialsNonExpired = value;
-  }
-
   get user_roles(): string[] {
     return this._user_roles;
   }
 
   set user_roles(value: string[]) {
     this._user_roles = value;
+  }
+
+  get phone(): string {
+    return this._phone;
+  }
+
+  set phone(value: string) {
+    this._phone = value;
+  }
+
+  get phoneVerified(): boolean {
+    return this._phoneVerified;
+  }
+
+  set phoneVerified(value: boolean) {
+    this._phoneVerified = value;
   }
 }

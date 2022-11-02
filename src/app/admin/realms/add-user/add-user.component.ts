@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {GlobalStateService} from "../../../_services/global-state.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../../_services/user.service";
@@ -17,6 +17,7 @@ export class AddUserComponent implements OnInit {
   submitted!: boolean;
 
   constructor(
+    private router: Router,
     private activateRoute: ActivatedRoute,
     private userService: UserService,
     private globalStateService: GlobalStateService,
@@ -48,16 +49,20 @@ export class AddUserComponent implements OnInit {
 
   submitForm() {
     this.submitted = true;
+    console.log(this.formGroup.valid)
     if (this.formGroup.valid) {
-      console.log("ok")
+      console.log("submited")
+
       this.userService.addNew(this.formGroup.value).subscribe({
         next: data => {
-          console.log(data);
+          this.router.navigate(["/admin/" + this.globalStateService.realm + "/users"]).then(r => {})
         },
         error: err => {
           console.log(err)
         }
       });
+    }else{
+      console.log(this.formGroup.errors)
     }
   }
 }

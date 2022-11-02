@@ -18,6 +18,16 @@ export class ClientsService {
     const params = new HttpParams()
       .set('page', page)
       .set('limit', limit);
-    return this.http.get<PaginatedModel<ClientModel[]>>(`${environment.apiUrl}/admin/client/${realm}/list`, {params});
+    return this.http.get<PaginatedModel<ClientModel[]>>(`${environment.apiUrl}/admin/${realm}/client/list`, {params});
+  }
+
+  addNew(data: any) {
+    let realm = this.globalStateService.realm;
+    return this.http.post<ClientModel>(`${environment.apiUrl}/admin/${realm}/client/`, data);
+  }
+
+  delete(uuid: any) {
+    let realm = this.globalStateService.realm;
+    return this.http.delete<any[]>(`${environment.apiUrl}/admin/${realm}/client/${uuid}`);
   }
 }

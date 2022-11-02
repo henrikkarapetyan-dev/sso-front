@@ -1,9 +1,13 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {UserDetailsComponent} from "./user-details/user-details.component";
+import {EditUserAttributesComponent} from "./edit-user-attributes/edit-user-attributes.component";
+import {EditPasswordComponent} from "./edit-password/edit-password.component";
 
 const routes: Routes = [
-  {path: ':id', component: UserDetailsComponent},
+  {path: '', component: UserDetailsComponent},
+  {path: 'edit-password', component: EditPasswordComponent},
+  {path: 'edit-user-attributes', component: EditUserAttributesComponent},
   {path: '*', redirectTo:"/not-found"}
 ];
 

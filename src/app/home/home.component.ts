@@ -11,17 +11,16 @@ export class HomeComponent implements OnInit {
   username: string = "";
   enabled: boolean = false;
 
-  constructor(private authService: AuthenticationService) {
-    this.authService.loadUserInfo();
-  }
+  constructor(private authService: AuthenticationService) {}
+
 
   ngOnInit(): void {
+    this.authService.loadUserInfo();
     this.isAuthenticated = this.authService.isLoggedIn;
+    console.log("in home controller ", this.isAuthenticated)
     this.authService.currentUser.subscribe(value => {
-      if (value) {
         this.username = value.username;
         this.enabled = value.enabled;
-      }
     })
 
   }

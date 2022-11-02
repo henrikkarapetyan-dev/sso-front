@@ -16,6 +16,9 @@ import { RolesComponent } from './roles/roles.component';
 import { ScopesComponent } from './scopes/scopes.component';
 import { AddUserComponent } from './realms/add-user/add-user.component';
 import { UserControlComponent } from './realms/user-control/user-control.component';
+import {UserControlModule} from "./realms/user-control/user-control.module";
+import { ClientAddComponent } from './realms/client-add/client-add.component';
+import { ClientDetailsComponent } from './realms/client-details/client-details.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { UserControlComponent } from './realms/user-control/user-control.compone
     UsersComponent,
     RolesComponent,
     ScopesComponent,
-    AddUserComponent
+    AddUserComponent,
+    UserControlComponent,
+    ClientAddComponent,
+    ClientDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +44,8 @@ import { UserControlComponent } from './realms/user-control/user-control.compone
     NgbModalModule,
     FormsModule,
     ReactiveFormsModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    UserControlModule
   ],
   exports:[
     PaginationComponent
