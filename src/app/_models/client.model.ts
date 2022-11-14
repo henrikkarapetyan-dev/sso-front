@@ -6,11 +6,13 @@ export class ClientModel {
   private _authorities!: [];
   private _scopes!: [];
   private _redirectUris!: [];
-  private _accessTokenValiditySeconds!: number;
-  private _refreshTokenValiditySeconds!: number;
+  private _accessTokenValiditySeconds!: string;
+  private _refreshTokenValiditySeconds!: string;
   private _auto_approve!: boolean;
   private _secretRequired!: boolean;
+  private _scoped!: boolean;
   private _realm_id!: string;
+  private _name!: string;
 
   get client_id(): string {
     return this._client_id;
@@ -61,19 +63,20 @@ export class ClientModel {
     this._redirectUris = value;
   }
 
-  get accessTokenValiditySeconds(): number {
+
+  get accessTokenValiditySeconds(): string {
     return this._accessTokenValiditySeconds;
   }
 
-  set accessTokenValiditySeconds(value: number) {
+  set accessTokenValiditySeconds(value: string) {
     this._accessTokenValiditySeconds = value;
   }
 
-  get refreshTokenValiditySeconds(): number {
+  get refreshTokenValiditySeconds(): string {
     return this._refreshTokenValiditySeconds;
   }
 
-  set refreshTokenValiditySeconds(value: number) {
+  set refreshTokenValiditySeconds(value: string) {
     this._refreshTokenValiditySeconds = value;
   }
 
@@ -93,7 +96,6 @@ export class ClientModel {
     this._secretRequired = value;
   }
 
-
   get realm_id(): string {
     return this._realm_id;
   }
@@ -108,5 +110,21 @@ export class ClientModel {
 
   set uuid(value: string) {
     this._uuid = value;
+  }
+
+  get name(): string {
+    return this._name;
+  }
+
+  set name(value: string) {
+    this._name = value;
+  }
+
+  get scoped(): boolean {
+    return this._scoped;
+  }
+
+  set scoped(value: boolean) {
+    this._scoped = value;
   }
 }

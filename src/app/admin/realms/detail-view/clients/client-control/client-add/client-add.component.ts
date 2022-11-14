@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
-import {GlobalStateService} from "../../../_services/global-state.service";
-import {ClientsService} from "../../../_services/admin/clients.service";
+import {GlobalStateService} from "../../../../../../_services/global-state.service";
+import {ClientsService} from "../../../../../../_services/admin/clients.service";
 
 @Component({
   selector: 'app-client-add',
@@ -41,10 +41,12 @@ export class ClientAddComponent implements OnInit {
 
   submitForm() {
     this.submitted = true;
+    console.log(this.globalStateService.realm)
     if (this.formGroup.valid) {
-      this.clientService.addNew(this.formGroup.value).subscribe({
+      this.clientService.addNew(this.formGroup.value)
+      .subscribe({
         next: data => {
-          this.router.navigate(["/admin/" + this.globalStateService.realm + "/client/detail-view/"+data.uuid]).then(r => {
+          this.router.navigate(["/admin/" + this.globalStateService.realm + "/client-control/"+data.uuid]).then(r => {
           })
         },
         error: err => {

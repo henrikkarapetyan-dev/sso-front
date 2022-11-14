@@ -1,0 +1,22 @@
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+  <li [ngbNavItem]="1">
+    <a ngbNavLink routerLinkActive="/admin/{{realm}}}/client-control/{{client_id}}" >Client Details</a>
+    <ng-template ngbNavContent>
+      <app-client-details [realm]="realm" [client_id]="client_id"></app-client-details>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="2">
+    <a ngbNavLink routerLinkActive="/admin/{{realm}}}/client-control/{{client_id}}/edit-password">Client Edit password</a>
+    <ng-template ngbNavContent>
+      <app-edit-client-password [realm]="realm" [client_id]="client_id"></app-edit-client-password>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="3">
+    <a ngbNavLink routerLinkActive="/admin/{{realm}}}/client-control/{{client_id}}/edit-user-attributes">Edit Client Attributes</a>
+    <ng-template ngbNavContent>
+      <app-edit-client-attributes [realm]="realm" [client_id]="client_id"></app-edit-client-attributes>
+    </ng-template>
+  </li>
+</ul>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>

@@ -38,7 +38,15 @@
       </div>
       <input id="password" class="form-control" formControlName="password">
     </div>
+    <label for="enabled" >Enabled</label>
+    <div class="input-group">
+      <div *ngIf="submitted && formControl['enabled'].errors" class="text-danger">
+        <div *ngIf="formControl['enabled'].errors['required']">Email is required</div>
+      </div>
+      <input id="enabled" type="checkbox" role="switch" class="form-control" formControlName="enabled">
+    </div>
   </div>
+
   <div class="buttons text-center">
     <button class="btn btn-success" type="submit">Add</button>
   </div>

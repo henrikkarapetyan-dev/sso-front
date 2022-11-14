@@ -3,6 +3,7 @@
     <thead>
     <tr>
       <th scope="col">User Id</th>
+      <th>Realm ID</th>
       <th scope="col" sortable="name" (sort)="onSort($event)">Name</th>
       <th scope="col" sortable="name" (sort)="onSort($event)">Username</th>
       <th scope="col">Email</th>
@@ -14,6 +15,7 @@
     <tbody>
     <tr *ngFor="let user of model_data">
       <td><a><ngb-highlight [result]="user.uuid" (click)="openUserPage(user.uuid)"  class="btn"></ngb-highlight></a></td>
+      <td>{{user.realmId}}</td>
       <td>{{user.firstName+" "+user.lastName}}</td>
       <td><ngb-highlight [result]="user.username"></ngb-highlight></td>
       <td><ngb-highlight [result]="user.email"></ngb-highlight></td>

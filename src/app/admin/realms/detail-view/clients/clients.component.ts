@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
-import {ClientModel} from "../../../_models/client.model";
-import {ClientsService} from "../../../_services/admin/clients.service";
-import {GlobalStateService} from "../../../_services/global-state.service";
+import {ClientModel} from "../../../../_models/client.model";
+import {ClientsService} from "../../../../_services/admin/clients.service";
+import {GlobalStateService} from "../../../../_services/global-state.service";
 
 @Component({
   selector: 'app-clients',
@@ -37,7 +37,7 @@ export class ClientsComponent implements OnInit {
   }
 
   edit(uuid: any) {
-    this.router.navigate(["/admin/" + this.globalStateService.realm + "/client/detail-view/"+uuid]);
+    this.router.navigate(["/admin/" + this.globalStateService.realm + "/client-control"+uuid+"/detail-view/"]);
   }
 
   delete(uuid: any) {

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {UserService} from "../../../../_services/user.service";
-import {UserPasswordModel} from "../../../../_models/user-password.model";
+import {UserService} from "../../../../../../_services/user.service";
+import {UserPasswordModel} from "../../../../../../_models/user-password.model";
 
 @Component({
   selector: 'app-edit-password',

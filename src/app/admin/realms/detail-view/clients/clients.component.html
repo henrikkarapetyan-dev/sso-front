@@ -10,7 +10,7 @@
     </thead>
     <tbody>
     <tr *ngFor="let client of model_data">
-      <td><a><ngb-highlight [result]="client.client_id" (click)="edit(client.uuid)"  class="btn"></ngb-highlight></a></td>
+      <td><a><ngb-highlight [result]="client.client_id" routerLink="/admin/{{realm}}/client-control/{{client.uuid}}"  class="btn"></ngb-highlight></a></td>
       <td>
         <span *ngFor="let authType of client.authorizationGrantTypes">{{authType}}<br></span>
       </td>

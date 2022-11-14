@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
-import {GlobalStateService} from "../../../_services/global-state.service";
+import {GlobalStateService} from "../../../../../../_services/global-state.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {UserService} from "../../../_services/user.service";
+import {UserService} from "../../../../../../_services/user.service";
 
 @Component({
   selector: 'app-add-user',
@@ -49,7 +49,6 @@ export class AddUserComponent implements OnInit {
 
   submitForm() {
     this.submitted = true;
-    console.log(this.formGroup.valid)
     if (this.formGroup.valid) {
       console.log("submited")
 

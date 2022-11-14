@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
-import {UserModel} from "../../../_models/user.model";
+import {UserModel} from "../../../../_models/user.model";
 import {ActivatedRoute, Router} from "@angular/router";
-import {UserService} from "../../../_services/user.service";
-import {GlobalStateService} from "../../../_services/global-state.service";
+import {UserService} from "../../../../_services/user.service";
+import {GlobalStateService} from "../../../../_services/global-state.service";
 
 @Component({
-  selector: 'app-realm-user',
+  selector: 'app-user',
   templateUrl: './realm-user.component.html',
   styleUrls: ['./realm-user.component.scss']
 })

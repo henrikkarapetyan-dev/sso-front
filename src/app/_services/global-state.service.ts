@@ -7,6 +7,7 @@ export class GlobalStateService {
 
   private _realm!: string;
   private _user_id!: string;
+  private _client_id!: string;
 
   constructor() {
   }
@@ -26,5 +27,14 @@ export class GlobalStateService {
 
   set user_id(value: string) {
     this._user_id = value;
+  }
+
+
+  get client_id(): string {
+    return this._client_id;
+  }
+
+  set client_id(value: string) {
+    this._client_id = value;
   }
 }
