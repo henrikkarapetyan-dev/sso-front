@@ -1,25 +1,21 @@
-<ul *ngIf="clientData!=null" class="list-group list-group-flush">
+<ul *ngIf="clientModelMainInfo!=null" class="list-group list-group-flush">
 
   <li class="list-group-item">
-    Realm ID: {{clientData.realm_id}}
+    Realm ID: {{clientModelMainInfo.realm_id}}
   </li>
 
   <li class="list-group-item">
-    Client ID: {{clientData.client_id}}
+    Client ID: {{clientModelMainInfo.client_id}}
   </li>
 
   <li class="list-group-item">
-    <label class="form-label" for="cl_name">Name: </label>
-    <input class="form-input" type="text" id="cl_name"
-           [value]="clientData.name"
-           #cl_name (input)="clientData.name = cl_name.value"
-    >
+    Client Name: {{clientModelMainInfo.name}}
   </li>
 <!--  <li class="list-group-item">-->
 <!--    <label class="form-label" for="authorizationGrantTypes">AuthorizationGrantTypes: </label>-->
 <!--    <input class="form-input" type="text" id="authorizationGrantTypes"-->
-<!--           [value]="clientData.authorizationGrantTypes"-->
-<!--           #authorizationGrantTypes (input)="clientData.authorizationGrantTypes = authorizationGrantTypes.value"-->
+<!--           [value]="clientModelMainInfo.authorizationGrantTypes"-->
+<!--           #authorizationGrantTypes (input)="clientModelMainInfo.authorizationGrantTypes = authorizationGrantTypes.value"-->
 <!--    >-->
 <!--  </li>-->
 
@@ -27,15 +23,15 @@
   <li class="list-group-item">
     <label class="form-label" for="atvs">AccessTokenValiditySeconds: </label>
     <input class="form-input" type="text" id="atvs"
-           [value]="clientData.accessTokenValiditySeconds"
-           #atvs (input)="clientData.accessTokenValiditySeconds = atvs.value"
+           [value]="clientModelMainInfo.accessTokenValiditySeconds"
+           #atvs (input)="clientModelMainInfo.accessTokenValiditySeconds = atvs.value"
     >
   </li>
   <li class="list-group-item">
     <label class="form-label" for="refreshTokenValiditySeconds">RefreshTokenValiditySeconds: </label>
     <input class="form-input" type="text" id="refreshTokenValiditySeconds"
-           [value]="clientData.refreshTokenValiditySeconds"
-           #refreshTokenValiditySeconds (input)="clientData.refreshTokenValiditySeconds = refreshTokenValiditySeconds.value"
+           [value]="clientModelMainInfo.refreshTokenValiditySeconds"
+           #refreshTokenValiditySeconds (input)="clientModelMainInfo.refreshTokenValiditySeconds = refreshTokenValiditySeconds.value"
     >
   </li>
   <li class="list-group-item">
@@ -44,8 +40,8 @@
              type="checkbox"
              role="switch"
              id="auto_approve"
-             [checked]="clientData.auto_approve"
-             (change)="clientData.auto_approve=!clientData.auto_approve"
+             [checked]="clientModelMainInfo.auto_approve"
+             (change)="clientModelMainInfo.auto_approve=!clientModelMainInfo.auto_approve"
       >
       <label class="form-check-label" for="auto_approve">Auto Approve</label>
     </div>
@@ -57,8 +53,8 @@
              type="checkbox"
              role="switch"
              id="secretRequired"
-             [checked]="clientData.secretRequired"
-             (change)="clientData.secretRequired=!clientData.secretRequired"
+             [checked]="clientModelMainInfo.secretRequired"
+             (change)="clientModelMainInfo.secretRequired=!clientModelMainInfo.secretRequired"
       >
       <label class="form-check-label" for="secretRequired">Secret Required</label>
     </div>
@@ -70,18 +66,19 @@
              type="checkbox"
              role="switch"
              id="scoped"
-             [checked]="clientData.scoped"
-             (change)="clientData.scoped=!clientData.scoped"
+             [checked]="clientModelMainInfo.scoped"
+             (change)="clientModelMainInfo.scoped=!clientModelMainInfo.scoped"
       >
       <label class="form-check-label" for="scoped">Scoped</label>
     </div>
   </li>
+</ul>
 
 <!--  <li class="list-group-item">-->
 <!--    <div class="form-check form-switch">-->
 <!--      <input class="form-check-input" type="checkbox" role="switch" id="accountExpired"-->
-<!--             [checked]="clientData.accountExpired"-->
-<!--             (change)="clientData.accountExpired=!clientData.accountExpired"-->
+<!--             [checked]="clientModelMainInfo.accountExpired"-->
+<!--             (change)="clientModelMainInfo.accountExpired=!clientModelMainInfo.accountExpired"-->
 <!--      >-->
 <!--      <label class="form-check-label" for="accountExpired">Account Expired</label>-->
 <!--    </div>-->
@@ -89,8 +86,8 @@
 <!--  <li class="list-group-item">-->
 <!--    <div class="form-check form-switch">-->
 <!--      <input class="form-check-input" type="checkbox" role="switch" id="credentialsExpired"-->
-<!--             [checked]="clientData.credentialsExpired"-->
-<!--             (change)="clientData.credentialsExpired=!clientData.credentialsExpired"-->
+<!--             [checked]="clientModelMainInfo.credentialsExpired"-->
+<!--             (change)="clientModelMainInfo.credentialsExpired=!clientModelMainInfo.credentialsExpired"-->
 <!--      >-->
 <!--      <label class="form-check-label" for="credentialsExpired">Credentials Expired</label>-->
 <!--    </div>-->
@@ -98,8 +95,8 @@
 <!--  <li class="list-group-item">-->
 <!--    <div class="form-check form-switch">-->
 <!--      <input class="form-check-input" type="checkbox" role="switch" id="accountLocked"-->
-<!--             [checked]="clientData.accountLocked"-->
-<!--             (change)="clientData.accountLocked=!clientData.accountLocked"-->
+<!--             [checked]="clientModelMainInfo.accountLocked"-->
+<!--             (change)="clientModelMainInfo.accountLocked=!clientModelMainInfo.accountLocked"-->
 <!--      >-->
 <!--      <label class="form-check-label" for="accountLocked">Account Locked</label>-->
 <!--    </div>-->
@@ -107,8 +104,8 @@
 <!--  <li class="list-group-item">-->
 <!--    <div class="form-check form-switch">-->
 <!--      <input class="form-check-input" type="checkbox" role="switch" id="enabled"-->
-<!--             [checked]="clientData.enabled"-->
-<!--             (change)="clientData.enabled=!clientData.enabled"-->
+<!--             [checked]="clientModelMainInfo.enabled"-->
+<!--             (change)="clientModelMainInfo.enabled=!clientModelMainInfo.enabled"-->
 <!--      >-->
 <!--      <label class="form-check-label" for="enabled">Enabled</label>-->
 <!--    </div>-->
@@ -116,8 +113,8 @@
 <!--  <li class="list-group-item">-->
 <!--    <div class="form-check form-switch">-->
 <!--      <input class="form-check-input" type="checkbox" role="switch" id="phoneVerified"-->
-<!--             [checked]="clientData.phoneVerified"-->
-<!--             (change)="clientData.phoneVerified=!clientData.phoneVerified"-->
+<!--             [checked]="clientModelMainInfo.phoneVerified"-->
+<!--             (change)="clientModelMainInfo.phoneVerified=!clientModelMainInfo.phoneVerified"-->
 <!--      >-->
 <!--      <label class="form-check-label" for="phoneVerified">Phone Verified</label>-->
 <!--    </div>-->

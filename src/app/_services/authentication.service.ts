@@ -12,7 +12,7 @@ import {TokenStorageService} from "./token-storage.service";
 export class AuthenticationService {
   get isLoggedIn(): boolean {
     let b = !!this.tokenStorageService.getToken();
-    console.log("user is logged in \t",b)
+    console.log("user is logged in \t", b)
     return b;
   }
 
@@ -88,8 +88,12 @@ export class AuthenticationService {
   }
 
   logout() {
-    this.currentTokenSubject.next(null);
-    this.currentUserSubject.next(null);
-    this.tokenStorageService.signOut();
+    return this.http.delete<any>(`${environment.apiUrl}/realms/${environment.realm}/token/`)
+      .subscribe(res => {
+          this.currentTokenSubject.next(null);
+          this.currentUserSubject.next(null);
+          this.tokenStorageService.signOut();
+        }
+      );
   }
 }

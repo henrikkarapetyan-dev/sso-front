@@ -46,7 +46,7 @@ export class ClientAddComponent implements OnInit {
       this.clientService.addNew(this.formGroup.value)
       .subscribe({
         next: data => {
-          this.router.navigate(["/admin/" + this.globalStateService.realm + "/client-control/"+data.uuid]).then(r => {
+          this.router.navigate(["/admin/" + this.globalStateService.realm + "/client-control/"+data.client_id]).then(r => {
           })
         },
         error: err => {

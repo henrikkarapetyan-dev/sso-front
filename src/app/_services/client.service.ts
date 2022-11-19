@@ -5,6 +5,7 @@ import {GlobalStateService} from "./global-state.service";
 import {PaginatedModel} from "../_models/paginated.model";
 import {ClientModel} from "../_models/client.model";
 import {ClientPasswordModel} from "../_models/client-password.model";
+import {ClientMainInfoEditModel} from "../_models/client-main-info-edit.model";
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +28,8 @@ export class ClientService {
     return this.http.post<PaginatedModel<ClientModel[]>>(`${environment.apiUrl}/admin/${realm}/client`, data);
   }
 
-  getOne(realm: string, user_id: string) {
-    return this.http.get<ClientModel>(`${environment.apiUrl}/admin/${realm}/client/${user_id}`);
+  getOne(realm: string, client_id: string) {
+    return this.http.get<ClientModel>(`${environment.apiUrl}/admin/${realm}/client/${client_id}`);
   }
 
   deleteById(userId: string) {
@@ -36,15 +37,23 @@ export class ClientService {
     return this.http.delete<ClientModel>(`${environment.apiUrl}/admin/${realm}/client/${userId}`);
   }
 
-  update(realm: string, user_id: string, data: ClientModel) {
-    return this.http.put<ClientModel>(`${environment.apiUrl}/admin/${realm}/client/${user_id}`, data);
+  update(realm: string, client_id: string, data: ClientModel) {
+    return this.http.put<ClientModel>(`${environment.apiUrl}/admin/${realm}/client/${client_id}`, data);
   }
 
-  passwordInfo(realm: string, user_id: string) {
-    return this.http.get<ClientPasswordModel>(`${environment.apiUrl}/admin/${realm}/client/${user_id}/password-info`);
+  passwordInfo(realm: string, client_id: string) {
+    return this.http.get<ClientPasswordModel>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/password-info`);
   }
 
-  updatePassword(realm: string, user_id: string, userData: ClientPasswordModel) {
-    return this.http.put<ClientPasswordModel>(`${environment.apiUrl}/admin/${realm}/client/${user_id}/password-info`, userData);
+  updatePassword(realm: string, client_id: string, clientData: ClientPasswordModel) {
+    return this.http.put<ClientPasswordModel>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/password-info`, clientData);
+  }
+
+  getClientMainInfo(realm: string, client_id: string) {
+    return this.http.get<ClientMainInfoEditModel>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/main-info/`);
+  }
+
+  updateClientMainInfo(realm: string, client_id: string, clientData: ClientMainInfoEditModel) {
+    return this.http.patch<ClientMainInfoEditModel>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/main-info/`, clientData);
   }
 }

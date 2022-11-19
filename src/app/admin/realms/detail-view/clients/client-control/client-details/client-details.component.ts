@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ClientModel} from "../../../../../../_models/client.model";
 import {ClientService} from "../../../../../../_services/client.service";
+import {ClientMainInfoEditModel} from "../../../../../../_models/client-main-info-edit.model";
+import {GlobalStateService} from "../../../../../../_services/global-state.service";
 
 @Component({
   selector: 'app-client-details',
@@ -12,20 +13,26 @@ export class ClientDetailsComponent implements OnInit {
 
   @Input() client_id!: string;
   @Input() realm!: string;
-  clientData!: ClientModel;
+  clientModelMainInfo!: ClientMainInfoEditModel;
 
-  constructor(private clientService: ClientService) {
+  constructor(private clientService: ClientService, private globalStateService: GlobalStateService) {
   }
 
   ngOnInit(): void {
-    this.clientService.getOne(this.realm, this.client_id).subscribe(data => {
-      this.clientData = data;
+    this.clientService.getClientMainInfo(this.realm, this.client_id).subscribe(data => {
+      this.clientModelMainInfo = data;
+      if (this.clientModelMainInfo){
+        this.globalStateService.show_client_edit_pass_tab = this.clientModelMainInfo.secretRequired;
+      }
     });
   }
 
   updateClientInfo() {
-    this.clientService.update(this.realm, this.client_id, this.clientData).subscribe(data => {
-      this.clientData = data;
+    this.clientService.updateClientMainInfo(this.realm, this.client_id, this.clientModelMainInfo).subscribe(data => {
+      this.clientModelMainInfo = data;
+      if (this.clientModelMainInfo){
+        this.globalStateService.show_client_edit_pass_tab = this.clientModelMainInfo.secretRequired;
+      }
     });
   }
 

@@ -8,6 +8,7 @@ export class GlobalStateService {
   private _realm!: string;
   private _user_id!: string;
   private _client_id!: string;
+  private _show_client_edit_pass_tab!: boolean;
 
   constructor() {
   }
@@ -36,5 +37,14 @@ export class GlobalStateService {
 
   set client_id(value: string) {
     this._client_id = value;
+  }
+
+
+  get show_client_edit_pass_tab(): boolean {
+    return this._show_client_edit_pass_tab;
+  }
+
+  set show_client_edit_pass_tab(value: boolean) {
+    this._show_client_edit_pass_tab = value;
   }
 }

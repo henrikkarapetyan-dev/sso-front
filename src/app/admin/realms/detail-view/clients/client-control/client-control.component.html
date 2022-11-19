@@ -5,7 +5,7 @@
       <app-client-details [realm]="realm" [client_id]="client_id"></app-client-details>
     </ng-template>
   </li>
-  <li [ngbNavItem]="2">
+  <li [ngbNavItem]="2" *ngIf="globalStateService.show_client_edit_pass_tab">
     <a ngbNavLink routerLinkActive="/admin/{{realm}}}/client-control/{{client_id}}/edit-password">Client Edit password</a>
     <ng-template ngbNavContent>
       <app-edit-client-password [realm]="realm" [client_id]="client_id"></app-edit-client-password>

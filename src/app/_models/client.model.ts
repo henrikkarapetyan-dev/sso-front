@@ -1,5 +1,7 @@
 export class ClientModel {
   private _client_id!: string;
+  private _realm_id!: string;
+
   private _uuid!: string;
   private _authorizationGrantTypes!: string[];
   private _resourceIds!: [];
@@ -11,7 +13,6 @@ export class ClientModel {
   private _auto_approve!: boolean;
   private _secretRequired!: boolean;
   private _scoped!: boolean;
-  private _realm_id!: string;
   private _name!: string;
 
   get client_id(): string {
