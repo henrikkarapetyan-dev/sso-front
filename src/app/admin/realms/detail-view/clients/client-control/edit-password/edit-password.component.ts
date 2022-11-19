@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ClientService} from "../../../../../../_services/client.service";
-import {ClientPasswordModel} from "../../../../../../_models/client-password.model";
+import {ClientSecretModel} from "../../../../../../_models/client-secret.model";
 
 @Component({
   selector: 'app-edit-client-password',
@@ -11,21 +11,21 @@ export class EditPasswordComponent implements OnInit {
 
   @Input() client_id!: string;
   @Input() realm!: string;
-  clientData!: ClientPasswordModel;
+  clientSecretData!: ClientSecretModel;
 
   constructor(private clientService: ClientService) {
   }
 
   ngOnInit(): void {
     this.clientService.passwordInfo(this.realm, this.client_id).subscribe(data => {
-      this.clientData = data;
+      this.clientSecretData = data;
     });
   }
 
-  updateUserInfo() {
-    console.log(this.clientData)
-    this.clientService.updatePassword(this.realm, this.client_id, this.clientData).subscribe(data => {
-      this.clientData = data;
+  updateClientSecretInfo() {
+    console.log(this.clientSecretData)
+    this.clientService.updatePassword(this.realm, this.client_id, this.clientSecretData).subscribe(data => {
+      this.clientSecretData = data;
       console.log(data)
     });
   }

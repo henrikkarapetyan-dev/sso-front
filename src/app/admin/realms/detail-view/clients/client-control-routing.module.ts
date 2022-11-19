@@ -3,10 +3,12 @@ import {RouterModule, Routes} from '@angular/router';
 import {EditPasswordComponent} from "./client-control/edit-password/edit-password.component";
 import {ClientDetailsComponent} from "./client-control/client-details/client-details.component";
 import {EditClientAttributesComponent} from "./client-control/edit-client-attributes/edit-client-attributes.component";
+import {ClientScopesComponent} from "./client-control/client-scopes/client-scopes.component";
 
 const routes: Routes = [
   {path: '', component: ClientDetailsComponent},
   {path: 'edit-password', component: EditPasswordComponent},
+  {path: 'edit-scopes', component: ClientScopesComponent},
   {path: 'edit-user-attributes', component: EditClientAttributesComponent},
   {path: '*', redirectTo:"/not-found"}
 ];

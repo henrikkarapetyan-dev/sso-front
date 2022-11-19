@@ -28,6 +28,7 @@ export class ClientControlComponent implements OnInit {
       this.globalStateService.realm = params['realm']
       this.globalStateService.client_id = params['id']
       this.globalStateService.show_client_edit_pass_tab = false;
+      this.globalStateService.show_client_scopes_tab = false;
       this.show_pass_edit_tab = this.globalStateService.show_client_edit_pass_tab;
       this.realm = this.globalStateService.realm;
       this.client_id = this.globalStateService.client_id;

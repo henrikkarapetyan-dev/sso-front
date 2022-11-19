@@ -11,7 +11,13 @@
       <app-edit-client-password [realm]="realm" [client_id]="client_id"></app-edit-client-password>
     </ng-template>
   </li>
-  <li [ngbNavItem]="3">
+  <li [ngbNavItem]="3" *ngIf="globalStateService.show_client_scopes_tab">
+    <a ngbNavLink routerLinkActive="/admin/{{realm}}}/client-control/{{client_id}}/edit-scopes">Client Scopes</a>
+    <ng-template ngbNavContent>
+      <app-client-scopes [realm]="realm" [client_id]="client_id"></app-client-scopes>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="4">
     <a ngbNavLink routerLinkActive="/admin/{{realm}}}/client-control/{{client_id}}/edit-user-attributes">Edit Client Attributes</a>
     <ng-template ngbNavContent>
       <app-edit-client-attributes [realm]="realm" [client_id]="client_id"></app-edit-client-attributes>

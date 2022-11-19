@@ -4,7 +4,7 @@ import {environment} from "../../environments/environment";
 import {GlobalStateService} from "./global-state.service";
 import {PaginatedModel} from "../_models/paginated.model";
 import {ClientModel} from "../_models/client.model";
-import {ClientPasswordModel} from "../_models/client-password.model";
+import {ClientSecretModel} from "../_models/client-secret.model";
 import {ClientMainInfoEditModel} from "../_models/client-main-info-edit.model";
 
 @Injectable({
@@ -42,11 +42,11 @@ export class ClientService {
   }
 
   passwordInfo(realm: string, client_id: string) {
-    return this.http.get<ClientPasswordModel>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/password-info`);
+    return this.http.get<ClientSecretModel>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/secret-info/`);
   }
 
-  updatePassword(realm: string, client_id: string, clientData: ClientPasswordModel) {
-    return this.http.put<ClientPasswordModel>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/password-info`, clientData);
+  updatePassword(realm: string, client_id: string, clientData: ClientSecretModel) {
+    return this.http.patch<ClientSecretModel>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/secret-info/`, clientData);
   }
 
   getClientMainInfo(realm: string, client_id: string) {

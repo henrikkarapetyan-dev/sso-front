@@ -23,6 +23,7 @@ export class ClientDetailsComponent implements OnInit {
       this.clientModelMainInfo = data;
       if (this.clientModelMainInfo){
         this.globalStateService.show_client_edit_pass_tab = this.clientModelMainInfo.secretRequired;
+        this.globalStateService.show_client_scopes_tab = this.clientModelMainInfo.scoped;
       }
     });
   }
@@ -32,6 +33,7 @@ export class ClientDetailsComponent implements OnInit {
       this.clientModelMainInfo = data;
       if (this.clientModelMainInfo){
         this.globalStateService.show_client_edit_pass_tab = this.clientModelMainInfo.secretRequired;
+        this.globalStateService.show_client_scopes_tab = this.clientModelMainInfo.scoped;
       }
     });
   }

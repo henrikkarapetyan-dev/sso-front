@@ -9,6 +9,7 @@ export class GlobalStateService {
   private _user_id!: string;
   private _client_id!: string;
   private _show_client_edit_pass_tab!: boolean;
+  private _show_client_scopes_tab!: boolean;
 
   constructor() {
   }
@@ -46,5 +47,14 @@ export class GlobalStateService {
 
   set show_client_edit_pass_tab(value: boolean) {
     this._show_client_edit_pass_tab = value;
+  }
+
+
+  get show_client_scopes_tab(): boolean {
+    return this._show_client_scopes_tab;
+  }
+
+  set show_client_scopes_tab(value: boolean) {
+    this._show_client_scopes_tab = value;
   }
 }
