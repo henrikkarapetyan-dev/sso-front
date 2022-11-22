@@ -35,7 +35,7 @@ export class AddUserComponent implements OnInit {
         password: ["", [Validators.required, Validators.pattern(
           "(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>\"'\\;:{\\}\\[\\]\\|\\+\\-\\=\\_\\)\\(\\)\\`\\/\\\\\\]])[A-Za-z0-9d$@].{7,}"
         )]],
-        enabled: ["", []]
+        enabled: ["",[Validators.required]]
       }
     )
   }
@@ -50,8 +50,6 @@ export class AddUserComponent implements OnInit {
   submitForm() {
     this.submitted = true;
     if (this.formGroup.valid) {
-      console.log("submited")
-
       this.userService.addNew(this.formGroup.value).subscribe({
         next: data => {
           this.router.navigate(["/admin/" + this.globalStateService.realm + "/users"]).then(r => {})

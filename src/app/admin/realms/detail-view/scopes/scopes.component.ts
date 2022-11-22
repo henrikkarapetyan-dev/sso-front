@@ -1,9 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {ScopeModel} from "../../_models/scope.model";
-import {ScopeService} from "../../_services/scope.service";
+import {ScopeModel} from "../../../../_models/scope.model";
+import {ScopeService} from "../../../../_services/scope.service";
+import {GlobalStateService} from "../../../../_services/global-state.service";
+import {Subscription} from "rxjs";
+import {AvailableStatusesService} from "../../../../_services/available-statuses.service";
+import {AvailableStatusesModel} from "../../../../_models/available-statuses.model";
 
 @Component({
   selector: 'app-scopes',
@@ -11,18 +15,30 @@ import {ScopeService} from "../../_services/scope.service";
   styleUrls: ['./scopes.component.scss']
 })
 export class ScopesComponent implements OnInit {
-
+  private subscription: Subscription;
   public model_data!: ScopeModel[];
   public formGroup: FormGroup;
   private errorMessage: any;
   submitted: boolean = false;
+  public realm!: string;
+  private _statuses!: AvailableStatusesModel[];
 
   constructor(
     public scopeService: ScopeService,
+    private activateRoute: ActivatedRoute,
+    private globalStateService: GlobalStateService,
     private router: Router,
     private modalService: NgbModal,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private availableStatusesService: AvailableStatusesService
   ) {
+    this.subscription = activateRoute.params.subscribe(params => {
+      this.globalStateService.realm = params['realm'];
+      this.realm = params['realm'];
+    });
+    availableStatusesService.getAll().subscribe(data => {
+      this._statuses = data;
+    });
     this.formGroup = this.fb.group({
         name: ["", [Validators.required]],
       }
@@ -45,7 +61,6 @@ export class ScopesComponent implements OnInit {
   }
 
   delete(roleId: string) {
-    console.log(roleId)
     this.scopeService.delete(roleId).subscribe(data => {
       window.location.reload();
     });
@@ -72,4 +87,12 @@ export class ScopesComponent implements OnInit {
     });
   }
 
+
+  get statuses(): AvailableStatusesModel[] {
+    return this._statuses;
+  }
+
+  changeValueState(uuid: string, name: string, role: ScopeModel) {
+    role.status = name;
+  }
 }

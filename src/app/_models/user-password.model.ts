@@ -1,4 +1,6 @@
-export class UserPasswordModel{
+import {BaseModel} from "./BaseModel";
+
+export class UserPasswordModel extends BaseModel{
   private _newPassword!: string;
   private _passwordExpired!: boolean;
 

@@ -1,5 +1,6 @@
+import {BaseModel} from "./BaseModel";
 
-export class TokenModel{
+export class TokenModel extends BaseModel{
   get access_token(): string {
     return this._access_token;
   }

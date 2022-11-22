@@ -41,7 +41,6 @@ export class ClientAddComponent implements OnInit {
 
   submitForm() {
     this.submitted = true;
-    console.log(this.globalStateService.realm)
     if (this.formGroup.valid) {
       this.clientService.addNew(this.formGroup.value)
       .subscribe({

@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Observable} from "rxjs";
 import {PaginatedModel} from "../../_models/paginated.model";
+import {BaseModel} from "../../_models/BaseModel";
 
 const FILTER_PAG_REGEX = /[^0-9]/g;
 
@@ -16,11 +17,13 @@ export class PaginationComponent implements OnInit {
   public page: number = 1;
   @Input() service!: any;
   @Output() public model_data: EventEmitter<any[]> = new EventEmitter<any[]>();
+  private _lastpage!: string;
 
   constructor() {
   }
 
   selectPage(page: string) {
+    console.log(page)
     this.page = parseInt(page, 10) || 1;
     this.request = this.service.getAll(this.page);
     this._loadData();
@@ -44,4 +47,10 @@ export class PaginationComponent implements OnInit {
     this._loadData();
   }
 
+
+  get lastpage(): string {
+    let number = Math.ceil(this.total/10);
+    console.log(number)
+    return this.page_count+'';
+  }
 }

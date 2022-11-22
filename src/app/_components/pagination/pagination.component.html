@@ -1,10 +1,20 @@
 <div class="container" style="text-align: center">
   <div class="d-flex justify-content-between p-2">
-    <ngb-pagination [collectionSize]="total" [(page)]="page"  [maxSize]="10" [boundaryLinks]="true">
-      <ng-template ngbPaginationPrevious>Prev</ng-template>
+    <ngb-pagination [collectionSize]="total" [(page)]="page" [maxSize]="10" [boundaryLinks]="false"
+                    [directionLinks]="false">
       <ng-template ngbPaginationPages let-page let-pages="pages">
-        <li class="ngb-custom-pages-item" *ngIf="pages.length > 0">
-          <div class="mb-3 d-flex flex-nowrap px-2">
+         <span class="ngb-custom-pages-item">
+          <div class="mb-2 d-flex flex-nowrap px-1">
+            <button class="pgn-btn" [disabled]="page === 1" (click)="selectPage(1+'')">«</button>
+          </div>
+        </span>
+        <span class="ngb-custom-pages-item">
+          <div class="mb-2 d-flex flex-nowrap px-2">
+            <button class="pgn-btn" (click)="selectPage((page-1)+'')" [disabled]="page === 1" >Prev</button>
+          </div>
+        </span>
+        <span class="ngb-custom-pages-item" *ngIf="pages.length > 0">
+          <div class="mb-2 d-flex flex-nowrap px-2">
             <label
               id="paginationInputLabel"
               for="paginationInput"
@@ -26,9 +36,18 @@
             <span id="paginationDescription" class="col-form-label text-nowrap px-2">
                   of {{pages.length}}</span>
           </div>
-        </li>
+        </span>
+        <span class="ngb-custom-pages-item">
+          <div class="mb-2 d-flex flex-nowrap px-2">
+            <button class="pgn-btn" [disabled]="page === page_count" (click)="selectPage((page+1)+'')">Next</button>
+          </div>
+        </span>
+        <span class="ngb-custom-pages-item">
+          <div class="mb-2 d-flex flex-nowrap px-1">
+            <button class="pgn-btn" (click)="selectPage(lastpage)" [disabled]="page === page_count">»</button>
+          </div>
+        </span>
       </ng-template>
-      <ng-template ngbPaginationNext  (change)="selectPage((page+1)+'')">Next</ng-template>
     </ngb-pagination>
   </div>
 </div>

@@ -23,10 +23,8 @@ export class EditPasswordComponent implements OnInit {
   }
 
   updateClientSecretInfo() {
-    console.log(this.clientSecretData)
     this.clientService.updatePassword(this.realm, this.client_id, this.clientSecretData).subscribe(data => {
       this.clientSecretData = data;
-      console.log(data)
     });
   }
 }

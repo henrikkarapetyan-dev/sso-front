@@ -6,7 +6,7 @@ import {DetailViewComponent} from "./realms/detail-view/detail-view.component";
 import {OptionsComponent} from "./realms/detail-view/options/options.component";
 import {RealmUserComponent} from "./realms/detail-view/user/realm-user.component";
 import {UsersComponent} from "./users/users.component";
-import {ScopesComponent} from "./scopes/scopes.component";
+import {ScopesComponent} from "./realms/detail-view/scopes/scopes.component";
 import {RolesComponent} from "./roles/roles.component";
 import {AddUserComponent} from "./realms/detail-view/user/user-control/add-user/add-user.component";
 import {AuthGuard} from "../_guard/auth.guard";
@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: 'users', component: UsersComponent},
   {path: 'realms', component: RealmsComponent},
   {path: 'roles', component: RolesComponent},
-  {path: 'scopes', component: ScopesComponent},
+  {path: ':realm/scopes', component: ScopesComponent},
   {path: ':realm/detail-view', component: DetailViewComponent},
   {path: ':realm/users', component: RealmUserComponent},
   {path: ':realm/clients', component: ClientsComponent},
@@ -37,8 +37,7 @@ const routes: Routes = [
     loadChildren: () => import('./realms/detail-view/clients/client-control-routing.module').then(m => m.ClientControlRoutingModule),
     canActivate: [AuthGuard]
   },
-  {path: '', redirectTo: "/admin/realms"},
-  {path: '*', redirectTo: "/not-found"}
+  {path: "", pathMatch: 'full', redirectTo: "/admin/realms"},
 ];
 
 @NgModule({

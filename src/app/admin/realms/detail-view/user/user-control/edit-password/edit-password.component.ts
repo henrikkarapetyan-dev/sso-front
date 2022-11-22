@@ -22,10 +22,8 @@ export class EditPasswordComponent implements OnInit {
   }
 
   updateUserInfo() {
-    console.log(this.userData)
     this.userService.updatePassword(this.realm, this.user_id, this.userData).subscribe(data => {
       this.userData = data;
-      console.log(data)
     });
   }
 }

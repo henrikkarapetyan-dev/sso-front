@@ -26,7 +26,6 @@ export class NavbarComponent implements OnInit {
   ngOnChanges(): void {
     this.isLoggedIn = this.authService.isLoggedIn;
     this.authService.loadUserInfo();
-    console.log("on navbar ", this.isLoggedIn);
     if (this.isLoggedIn) {
       this.currentUserFullName = this.authService.currentUserValue.firstName + " " + this.authService.currentUserValue.lastName
     }
@@ -35,7 +34,6 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.isLoggedIn = this.authService.isLoggedIn;
     this.authService.loadUserInfo();
-    console.log("on navbar ", this.isLoggedIn);
     if (this.isLoggedIn) {
       this.currentUserFullName = this.authService.currentUserValue.firstName + " " + this.authService.currentUserValue.lastName
     }

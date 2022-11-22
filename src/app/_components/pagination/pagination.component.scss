@@ -1,0 +1,10 @@
+.pgn-btn{
+  padding: 5px 10px;
+  background: darkblue;
+  border-radius: 5px;
+  color: white;
+  border:none;
+}
+.pgn-btn[disabled]{
+  opacity: 0.5;
+}

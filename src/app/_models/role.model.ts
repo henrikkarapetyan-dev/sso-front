@@ -1,4 +1,6 @@
-export class RoleModel{
+import {BaseModel} from "./BaseModel";
+
+export class RoleModel  extends BaseModel{
   private _uuid!: string
   private _name!: string
 

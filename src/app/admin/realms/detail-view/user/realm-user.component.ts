@@ -41,7 +41,6 @@ export class RealmUserComponent implements OnInit {
   delete(userId: string) {
     this.userService.deleteById(userId).subscribe({
       next: data => {
-        console.log("/admin/" + this.globalStateService.realm + "/users")
         this.router.navigateByUrl("/admin/" + this.globalStateService.realm + "/users").then(r => {
           console.log(r)
         })

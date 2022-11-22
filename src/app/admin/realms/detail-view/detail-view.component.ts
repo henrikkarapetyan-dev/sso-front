@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-detail-view',
@@ -15,10 +16,15 @@ export class DetailViewComponent implements OnInit {
   constructor(private activateRoute: ActivatedRoute) {
     this.subscription = activateRoute.params.subscribe(params => this._realm = params['realm']);
   }
+
   ngOnInit(): void {
   }
 
   get realm(): string {
     return this._realm;
+  }
+
+  get getRealmLinks(): string {
+    return environment.apiUrl + "/realms/" + this._realm + "/routes/"
   }
 }

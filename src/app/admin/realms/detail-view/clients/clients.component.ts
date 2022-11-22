@@ -41,14 +41,12 @@ export class ClientsComponent implements OnInit {
   }
 
   delete(uuid: any) {
-    console.log(uuid)
     this.clientService.delete(uuid).subscribe(data=>{
       window.location.reload();
     });
   }
 
   setModelData($event: any[]) {
-    console.log($event)
     this.model_data = $event
   }
 }

@@ -6,6 +6,7 @@ import {PaginatedModel} from "../_models/paginated.model";
 import {ClientModel} from "../_models/client.model";
 import {ClientSecretModel} from "../_models/client-secret.model";
 import {ClientMainInfoEditModel} from "../_models/client-main-info-edit.model";
+import {ClientScopesModel} from "../_models/client-scopes.model";
 
 @Injectable({
   providedIn: 'root'
@@ -55,5 +56,17 @@ export class ClientService {
 
   updateClientMainInfo(realm: string, client_id: string, clientData: ClientMainInfoEditModel) {
     return this.http.patch<ClientMainInfoEditModel>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/main-info/`, clientData);
+  }
+
+  updateClientScopes(realm: string, client_id: string, clientScopesData: ClientScopesModel) {
+    return this.http.patch<any>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/scopes/`, clientScopesData);
+  }
+
+  scopesInfo(realm: string, client_id: string) {
+    return this.http.get<ClientScopesModel[]>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/scopes/`);
+  }
+
+  availableScopesInfo(realm: string, client_id: string) {
+    return this.http.get<ClientScopesModel[]>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/available-scopes/`);
   }
 }

@@ -45,7 +45,6 @@ export class RolesComponent implements OnInit {
   }
 
   delete(roleId: string) {
-    console.log(roleId)
     this.roleService.delete(roleId).subscribe(data => {
       window.location.reload();
     });

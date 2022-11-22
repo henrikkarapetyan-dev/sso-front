@@ -1,4 +1,6 @@
-export class ClientMainInfoEditModel {
+import {BaseModel} from "./BaseModel";
+
+export class ClientMainInfoEditModel extends BaseModel{
 
   private _client_id!: string;
   private _realm_id!: string;

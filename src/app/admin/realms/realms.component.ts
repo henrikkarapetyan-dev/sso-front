@@ -43,7 +43,6 @@ export class RealmsComponent implements OnInit {
   }
 
   delete(realmId: any) {
-    console.log(realmId)
     this.realmService.delete(realmId).subscribe(data=>{
      window.location.reload();
     });
@@ -60,7 +59,6 @@ export class RealmsComponent implements OnInit {
   }
 
   submitForm(modal: any) {
-    console.log("called")
     if (this.formGroup.valid) {
       modal.close();
       const {name} = this.formGroup.value;

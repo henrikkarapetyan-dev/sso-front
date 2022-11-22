@@ -1,4 +1,6 @@
-export class ClientModel {
+import {BaseModel} from "./BaseModel";
+
+export class ClientModel extends BaseModel{
   private _client_id!: string;
   private _realm_id!: string;
 

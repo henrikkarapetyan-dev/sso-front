@@ -1,4 +1,6 @@
-export class UserModel {
+import {BaseModel} from "./BaseModel";
+
+export class UserModel extends BaseModel{
   private _firstName!: string;
   private _lastName!: string;
   private _uuid!: string;

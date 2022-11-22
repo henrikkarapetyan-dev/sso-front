@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "sso_front"
+  "defaultProject": "sso_front",
+  "cli": {
+    "analytics": false
+  }
 }

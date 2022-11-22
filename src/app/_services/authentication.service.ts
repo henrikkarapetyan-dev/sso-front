@@ -12,7 +12,6 @@ import {TokenStorageService} from "./token-storage.service";
 export class AuthenticationService {
   get isLoggedIn(): boolean {
     let b = !!this.tokenStorageService.getToken();
-    console.log("user is logged in \t", b)
     return b;
   }
 
@@ -74,11 +73,9 @@ export class AuthenticationService {
 
   loadUserInfo() {
     if (this.isLoggedIn) {
-      console.log("trying to initialize user info", this.currentUserValue)
       if (this.isEmptyUserData) {
         this.http.get<any>(`${environment.apiUrl}/realms/${environment.realm}/me/`)
           .subscribe(user => {
-            console.log("user api call", user)
             this.tokenStorageService.saveUser(JSON.stringify(user))
             this.currentUserSubject.next(user);
             return user

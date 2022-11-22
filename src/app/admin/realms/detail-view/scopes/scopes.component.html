@@ -28,6 +28,7 @@
     <tr>
       <th scope="col">Scope Id</th>
       <th scope="col" sortable="name" (sort)="onSort($event)">Name</th>
+      <th scope="col" sortable="name">Status</th>
       <th scope="col"></th>
     </tr>
     </thead>
@@ -35,6 +36,14 @@
     <tr *ngFor="let role of model_data">
       <td><a><ngb-highlight [result]="role.uuid"  class="btn"></ngb-highlight></a></td>
       <td><ngb-highlight [result]="role.name"></ngb-highlight></td>
+      <td>
+        <div ngbDropdown container="body">
+        <button type="button" class="btn btn-outline-primary btn-sm" ngbDropdownToggle>{{role.status}}</button>
+        <div ngbDropdownMenu>
+          <button ngbDropdownItem *ngFor="let status of statuses"  (click)="changeValueState(role.uuid, status.name, role)">{{status.name}}</button>
+        </div>
+      </div>
+      </td>
       <td>
         <a (click)="delete(role.uuid)" class="btn btn-danger">Delete</a>
       </td>

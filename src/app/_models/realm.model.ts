@@ -1,4 +1,6 @@
-export class RealmModel{
+import {BaseModel} from "./BaseModel";
+
+export class RealmModel extends BaseModel{
   private _name!:string;
 
   private _realmId!:string;

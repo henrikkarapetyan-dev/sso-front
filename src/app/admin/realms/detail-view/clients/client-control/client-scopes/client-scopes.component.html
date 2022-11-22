@@ -1,1 +1,13 @@
-<p>client-scopes works!</p>
+<h3><code>ng2-dragula</code></h3>
+
+<!-- these are some basics to get you started -- modify as you see fit. -->
+
+<div class="flex">
+  <div class="container" dragula="{{groupName}}" [(dragulaModel)]="clientScopesData">
+    <div class="vamp" *ngFor="let vamp of clientScopesData">{{ vamp.name }}</div>
+  </div>
+
+  <div class="container" dragula="{{groupName}}" [(dragulaModel)]="clientAvailableScopes">
+    <div class="vamp" *ngFor="let vamp of clientAvailableScopes">{{ vamp.name }}</div>
+  </div>
+</div>

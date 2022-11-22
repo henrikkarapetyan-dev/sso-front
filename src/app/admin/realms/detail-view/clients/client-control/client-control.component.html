@@ -18,6 +18,12 @@
     </ng-template>
   </li>
   <li [ngbNavItem]="4">
+    <a ngbNavLink routerLinkActive="/admin/{{realm}}}/client-control/{{client_id}}/edit-client-redirect-uris">Edit Client Redirect Uris</a>
+    <ng-template ngbNavContent>
+      <app-client-redirect-uris [realm]="realm" [client_id]="client_id"></app-client-redirect-uris>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="5">
     <a ngbNavLink routerLinkActive="/admin/{{realm}}}/client-control/{{client_id}}/edit-user-attributes">Edit Client Attributes</a>
     <ng-template ngbNavContent>
       <app-edit-client-attributes [realm]="realm" [client_id]="client_id"></app-edit-client-attributes>
