@@ -1,4 +1,5 @@
 import {BaseModel} from "./BaseModel";
+import {RoleModel} from "./role.model";
 
 export class UserModel extends BaseModel {
   private _firstName!: string;
@@ -14,7 +15,7 @@ export class UserModel extends BaseModel {
   private _enabled!: boolean;
   private _emailVerified!: boolean;
   private _phoneVerified!: boolean;
-  private _user_roles!: string[];
+  private _user_roles!: RoleModel[];
   private _passwordExpired!: boolean;
 
   get uuid(): string {
@@ -109,11 +110,11 @@ export class UserModel extends BaseModel {
     this._emailVerified = value;
   }
 
-  get user_roles(): string[] {
+  get user_roles(): RoleModel[] {
     return this._user_roles;
   }
 
-  set user_roles(value: string[]) {
+  set user_roles(value: RoleModel[]) {
     this._user_roles = value;
   }
 

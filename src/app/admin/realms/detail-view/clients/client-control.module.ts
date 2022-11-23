@@ -6,6 +6,7 @@ import {EditClientAttributesComponent} from './client-control/edit-client-attrib
 import {ClientScopesComponent} from './client-control/client-scopes/client-scopes.component';
 import {ClientRedirectUrisComponent} from './client-control/client-redirect-uris/client-redirect-uris.component';
 import {DragulaModule} from "ng2-dragula";
+import { ClientGrandAuthoritiesComponent } from './client-control/client-grand-authorities/client-grand-authorities.component';
 
 
 @NgModule({
@@ -14,14 +15,16 @@ import {DragulaModule} from "ng2-dragula";
     EditPasswordComponent,
     EditClientAttributesComponent,
     ClientScopesComponent,
-    ClientRedirectUrisComponent
+    ClientRedirectUrisComponent,
+    ClientGrandAuthoritiesComponent
   ],
   exports: [
     ClientDetailsComponent,
     EditPasswordComponent,
     EditClientAttributesComponent,
     ClientScopesComponent,
-    ClientRedirectUrisComponent
+    ClientRedirectUrisComponent,
+    ClientGrandAuthoritiesComponent
   ],
   imports: [
     CommonModule,

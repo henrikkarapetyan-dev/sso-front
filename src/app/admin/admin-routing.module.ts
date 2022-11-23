@@ -13,12 +13,14 @@ import {AuthGuard} from "../_guard/auth.guard";
 import {UserControlComponent} from "./realms/detail-view/user/user-control/user-control.component";
 import {ClientAddComponent} from "./realms/detail-view/clients/client-control/client-add/client-add.component";
 import {ClientControlComponent} from "./realms/detail-view/clients/client-control/client-control.component";
+import {ResourcesComponent} from "./realms/detail-view/resources/resources.component";
 
 const routes: Routes = [
   {path: 'users', component: UsersComponent},
   {path: 'realms', component: RealmsComponent},
   {path: 'roles', component: RolesComponent},
   {path: ':realm/scopes', component: ScopesComponent},
+  {path: ':realm/resources', component: ResourcesComponent},
   {path: ':realm/detail-view', component: DetailViewComponent},
   {path: ':realm/users', component: RealmUserComponent},
   {path: ':realm/clients', component: ClientsComponent},

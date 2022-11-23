@@ -1,30 +1,36 @@
 <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
   <li [ngbNavItem]="1">
-    <a ngbNavLink routerLinkActive="/admin/{{realm}}}/client-control/{{client_id}}" >Client Details</a>
+    <a ngbNavLink routerLinkActive="/admin/{{realm}}}/client-control/{{client_id}}" >Details</a>
     <ng-template ngbNavContent>
       <app-client-details [realm]="realm" [client_id]="client_id"></app-client-details>
     </ng-template>
   </li>
   <li [ngbNavItem]="2" *ngIf="globalStateService.show_client_edit_pass_tab">
-    <a ngbNavLink routerLinkActive="/admin/{{realm}}}/client-control/{{client_id}}/edit-password">Client Edit password</a>
+    <a ngbNavLink routerLinkActive="/admin/{{realm}}}/client-control/{{client_id}}/edit-password">Secret</a>
     <ng-template ngbNavContent>
       <app-edit-client-password [realm]="realm" [client_id]="client_id"></app-edit-client-password>
     </ng-template>
   </li>
   <li [ngbNavItem]="3" *ngIf="globalStateService.show_client_scopes_tab">
-    <a ngbNavLink routerLinkActive="/admin/{{realm}}}/client-control/{{client_id}}/edit-scopes">Client Scopes</a>
+    <a ngbNavLink routerLinkActive="/admin/{{realm}}}/client-control/{{client_id}}/edit-scopes">Scopes</a>
     <ng-template ngbNavContent>
       <app-client-scopes [realm]="realm" [client_id]="client_id"></app-client-scopes>
     </ng-template>
   </li>
   <li [ngbNavItem]="4">
-    <a ngbNavLink routerLinkActive="/admin/{{realm}}}/client-control/{{client_id}}/edit-client-redirect-uris">Edit Client Redirect Uris</a>
+    <a ngbNavLink routerLinkActive="/admin/{{realm}}}/client-control/{{client_id}}/edit-client-redirect-uris">Redirect Uris</a>
     <ng-template ngbNavContent>
       <app-client-redirect-uris [realm]="realm" [client_id]="client_id"></app-client-redirect-uris>
     </ng-template>
   </li>
   <li [ngbNavItem]="5">
-    <a ngbNavLink routerLinkActive="/admin/{{realm}}}/client-control/{{client_id}}/edit-user-attributes">Edit Client Attributes</a>
+    <a ngbNavLink routerLinkActive="/admin/{{realm}}}/client-control/{{client_id}}/edit-client-granted-authorities">Authorities</a>
+    <ng-template ngbNavContent>
+      <app-client-grand-authorities [realm]="realm" [client_id]="client_id"></app-client-grand-authorities>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="6">
+    <a ngbNavLink routerLinkActive="/admin/{{realm}}}/client-control/{{client_id}}/edit-user-attributes">Attributes</a>
     <ng-template ngbNavContent>
       <app-edit-client-attributes [realm]="realm" [client_id]="client_id"></app-edit-client-attributes>
     </ng-template>

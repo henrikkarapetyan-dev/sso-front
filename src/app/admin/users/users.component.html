@@ -20,7 +20,7 @@
       <td><ngb-highlight [result]="user.username"></ngb-highlight></td>
       <td><ngb-highlight [result]="user.email"></ngb-highlight></td>
       <td>
-        <span *ngFor="let role of user.user_roles">{{role}}<br></span>
+        <span *ngFor="let role of user.user_roles">{{role.name}}<br></span>
       </td>
       <td>{{user.enabled}}</td>
       <td>{{user.emailVerified}}</td>

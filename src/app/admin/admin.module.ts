@@ -20,6 +20,7 @@ import {UserControlModule} from "./realms/detail-view/user/user-control/user-con
 import { ClientAddComponent } from './realms/detail-view/clients/client-control/client-add/client-add.component';
 import { ClientControlComponent } from './realms/detail-view/clients/client-control/client-control.component';
 import {ClientControlModule} from "./realms/detail-view/clients/client-control.module";
+import { ResourcesComponent } from './realms/detail-view/resources/resources.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {ClientControlModule} from "./realms/detail-view/clients/client-control.m
     AddUserComponent,
     UserControlComponent,
     ClientAddComponent,
-    ClientControlComponent
+    ClientControlComponent,
+    ResourcesComponent
   ],
   imports: [
     CommonModule,

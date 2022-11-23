@@ -7,6 +7,7 @@ import {ClientModel} from "../_models/client.model";
 import {ClientSecretModel} from "../_models/client-secret.model";
 import {ClientMainInfoEditModel} from "../_models/client-main-info-edit.model";
 import {ClientScopesModel} from "../_models/client-scopes.model";
+import {ClientAuthorizationGrantTypeModel} from "../_models/client-authorization-grant-type.model";
 
 @Injectable({
   providedIn: 'root'
@@ -68,5 +69,17 @@ export class ClientService {
 
   availableScopesInfo(realm: string, client_id: string) {
     return this.http.get<ClientScopesModel[]>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/available-scopes/`);
+  }
+
+  grantTypesInfo(realm: string, client_id: string) {
+    return this.http.get<ClientAuthorizationGrantTypeModel[]>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/grant-types/`);
+  }
+
+  availableGrantTypesInfo(realm: string, client_id: string) {
+    return this.http.get<ClientAuthorizationGrantTypeModel[]>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/available-grant-types/`);
+  }
+
+  updateClientGrantTypes(realm: string, client_id: string, clientAuthorizationGrantTypeModel: ClientAuthorizationGrantTypeModel) {
+    return this.http.patch<any>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/grant-types/`, clientAuthorizationGrantTypeModel);
   }
 }
