@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { EditPasswordComponent } from './edit-password/edit-password.component';
 import { EditUserAttributesComponent } from './edit-user-attributes/edit-user-attributes.component';
+import { UserRolesComponent } from './user-roles/user-roles.component';
+import {DragulaModule} from "ng2-dragula";
 
 
 
@@ -10,15 +12,18 @@ import { EditUserAttributesComponent } from './edit-user-attributes/edit-user-at
   declarations: [
     UserDetailsComponent,
     EditPasswordComponent,
-    EditUserAttributesComponent
+    EditUserAttributesComponent,
+    UserRolesComponent
   ],
-  exports: [
-    EditPasswordComponent,
-    UserDetailsComponent,
-    EditUserAttributesComponent
-  ],
+    exports: [
+        EditPasswordComponent,
+        UserDetailsComponent,
+        EditUserAttributesComponent,
+        UserRolesComponent
+    ],
   imports: [
-    CommonModule
+    CommonModule,
+    DragulaModule.forRoot()
   ]
 })
 export class UserControlModule { }

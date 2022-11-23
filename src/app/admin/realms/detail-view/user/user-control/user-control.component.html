@@ -12,6 +12,12 @@
     </ng-template>
   </li>
   <li [ngbNavItem]="3">
+    <a ngbNavLink routerLinkActive="/admin/{{realm}}}/user-control/{{user_id}}/edit-user-roles">Edit User Roles</a>
+    <ng-template ngbNavContent>
+      <app-edit-user-roles [realm]="realm" [user_id]="user_id"></app-edit-user-roles>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="4">
     <a ngbNavLink routerLinkActive="/admin/{{realm}}}/user-control/{{user_id}}/edit-user-attributes">Edit User Attributes</a>
     <ng-template ngbNavContent>
       <app-edit-user-attributes [realm]="realm" [user_id]="user_id"></app-edit-user-attributes>

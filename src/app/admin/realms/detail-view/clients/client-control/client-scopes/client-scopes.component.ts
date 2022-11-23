@@ -8,7 +8,7 @@ import {DragulaService} from "ng2-dragula";
   templateUrl: './client-scopes.component.html',
   styleUrls: ['./client-scopes.component.scss']
 })
-export class ClientScopesComponent implements OnInit, OnDestroy {
+export class ClientScopesComponent implements OnInit {
 
   @Input() client_id!: string;
   @Input() realm!: string;
@@ -25,9 +25,7 @@ export class ClientScopesComponent implements OnInit, OnDestroy {
       });
 
       this.dragulaService.dropModel(this.groupName).subscribe(args => {
-          this.clientService.updateClientScopes(this.realm, this.client_id, args.item).subscribe(data => {
-            console.log(data)
-          });
+          this.clientService.updateClientScopes(this.realm, this.client_id, args.item).subscribe(data => {});
       });
     }
 
@@ -38,7 +36,6 @@ export class ClientScopesComponent implements OnInit, OnDestroy {
       .subscribe(
         data => {
           this.clientScopesData = data;
-          console.log(data)
         }
       );
 
@@ -46,11 +43,8 @@ export class ClientScopesComponent implements OnInit, OnDestroy {
       .subscribe(
         data => {
           this.clientAvailableScopes = data;
-          console.log(data)
         }
       );
 
-  }
-  ngOnDestroy() {
   }
 }

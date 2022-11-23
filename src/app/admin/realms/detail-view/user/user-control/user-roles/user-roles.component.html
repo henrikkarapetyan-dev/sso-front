@@ -1,0 +1,9 @@
+<div class="flex">
+  <div class="container" dragula="{{groupName}}" [(dragulaModel)]="userRolesData">
+    <div class="vamp" *ngFor="let vamp of userRolesData">{{ vamp.name }}</div>
+  </div>
+
+  <div class="container" dragula="{{groupName}}" [(dragulaModel)]="userAvailableRoles">
+    <div class="vamp" *ngFor="let vamp of userAvailableRoles">{{ vamp.name }}</div>
+  </div>
+</div>

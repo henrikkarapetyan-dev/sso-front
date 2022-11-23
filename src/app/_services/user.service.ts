@@ -5,6 +5,8 @@ import {GlobalStateService} from "./global-state.service";
 import {PaginatedModel} from "../_models/paginated.model";
 import {UserModel} from "../_models/user.model";
 import {UserPasswordModel} from "../_models/user-password.model";
+import {ClientScopesModel} from "../_models/client-scopes.model";
+import {UserRolesModel} from "../_models/user-roles.model";
 
 @Injectable({
   providedIn: 'root'
@@ -46,5 +48,17 @@ export class UserService {
 
   updatePassword(realm: string, user_id: string, userData: UserPasswordModel) {
     return this.http.put<UserPasswordModel>(`${environment.apiUrl}/admin/${realm}/user/${user_id}/password-info`, userData);
+  }
+
+  updateUserRoles(realm: string, client_id: string, userRolesModel: UserRolesModel) {
+    return this.http.patch<any>(`${environment.apiUrl}/admin/${realm}/user/${client_id}/roles/`, userRolesModel);
+  }
+
+  rolesInfo(realm: string, user_id: string) {
+    return this.http.get<UserRolesModel[]>(`${environment.apiUrl}/admin/${realm}/user/${user_id}/roles/`);
+  }
+
+  availableRolesInfo(realm: string, user_id: string) {
+    return this.http.get<UserRolesModel[]>(`${environment.apiUrl}/admin/${realm}/user/${user_id}/available-roles/`);
   }
 }

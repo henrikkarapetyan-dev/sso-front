@@ -26,14 +26,14 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th scope="col">Role Id</th>
+      <th scope="col">Role status</th>
       <th scope="col" sortable="name" (sort)="onSort($event)">Name</th>
       <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let role of model_data">
-      <td><a><ngb-highlight [result]="role.uuid"  class="btn"></ngb-highlight></a></td>
+      <td><a><ngb-highlight [result]="role.status"></ngb-highlight></a></td>
       <td><ngb-highlight [result]="role.name"></ngb-highlight></td>
       <td>
         <a (click)="delete(role.uuid)" class="btn btn-danger">Delete</a>

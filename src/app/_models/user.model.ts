@@ -1,6 +1,6 @@
 import {BaseModel} from "./BaseModel";
 
-export class UserModel extends BaseModel{
+export class UserModel extends BaseModel {
   private _firstName!: string;
   private _lastName!: string;
   private _uuid!: string;
@@ -15,6 +15,7 @@ export class UserModel extends BaseModel{
   private _emailVerified!: boolean;
   private _phoneVerified!: boolean;
   private _user_roles!: string[];
+  private _passwordExpired!: boolean;
 
   get uuid(): string {
     return this._uuid;
@@ -130,5 +131,14 @@ export class UserModel extends BaseModel{
 
   set phoneVerified(value: boolean) {
     this._phoneVerified = value;
+  }
+
+
+  get passwordExpired(): boolean {
+    return this._passwordExpired;
+  }
+
+  set passwordExpired(value: boolean) {
+    this._passwordExpired = value;
   }
 }
