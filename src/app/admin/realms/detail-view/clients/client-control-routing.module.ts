@@ -8,6 +8,7 @@ import {ClientRedirectUrisComponent} from "./client-control/client-redirect-uris
 import {
   ClientGrandAuthoritiesComponent
 } from "./client-control/client-grand-authorities/client-grand-authorities.component";
+import {ClientResourcesComponent} from "./client-control/client-resources/client-resources.component";
 
 const routes: Routes = [
   {path: '', component: ClientDetailsComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'edit-scopes', component: ClientScopesComponent},
   {path: 'edit-client-attributes', component: EditClientAttributesComponent},
   {path: 'edit-client-redirect-uris', component: ClientRedirectUrisComponent},
+  {path: 'edit-client-resources', component: ClientResourcesComponent},
   {path: 'edit-client-granted-authorities', component: ClientGrandAuthoritiesComponent},
   {path: '*', redirectTo: "/not-found"}
 ];

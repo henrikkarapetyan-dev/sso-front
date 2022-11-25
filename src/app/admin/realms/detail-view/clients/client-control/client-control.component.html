@@ -30,6 +30,12 @@
     </ng-template>
   </li>
   <li [ngbNavItem]="6">
+    <a ngbNavLink routerLinkActive="/admin/{{realm}}}/client-control/{{client_id}}/edit-client-resources">Resources</a>
+    <ng-template ngbNavContent>
+      <app-client-resources [realm]="realm" [client_id]="client_id"></app-client-resources>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="7">
     <a ngbNavLink routerLinkActive="/admin/{{realm}}}/client-control/{{client_id}}/edit-user-attributes">Attributes</a>
     <ng-template ngbNavContent>
       <app-edit-client-attributes [realm]="realm" [client_id]="client_id"></app-edit-client-attributes>

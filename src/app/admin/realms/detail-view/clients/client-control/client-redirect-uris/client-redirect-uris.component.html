@@ -1,1 +1,42 @@
-<p>client-redirect-uris works!</p>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add redirect uri</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formGroup" (ngSubmit)="submitForm(modal)">
+      <div class="mb-3">
+        <label for="uri" >Uri</label>
+        <div class="input-group">
+          <div *ngIf="submitted && formControl['uri'].errors" class="text-danger">
+            <div *ngIf="formControl['uri'].errors['required']">Uri is required.</div>
+          </div>
+          <input id="uri" class="form-control" formControlName="uri">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-outline-dark" >Save</button>
+    </form>
+  </div>
+
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add Redirect Uri</button>
+
+<form>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Uri</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let role of redirectUriData">
+      <td><a><ngb-highlight [result]="role.uri"></ngb-highlight></a></td>
+      <td>
+        <a (click)="delete(role.uuid)" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</form>

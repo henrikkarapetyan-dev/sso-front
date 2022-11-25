@@ -33,4 +33,5 @@ export class ResourceService {
     let realm = this.globalStateService.realm
     return this.http.delete<any[]>(`${environment.apiUrl}/admin/${realm}/resource/${scopeId}`);
   }
+
 }

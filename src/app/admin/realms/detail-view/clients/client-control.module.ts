@@ -7,6 +7,9 @@ import {ClientScopesComponent} from './client-control/client-scopes/client-scope
 import {ClientRedirectUrisComponent} from './client-control/client-redirect-uris/client-redirect-uris.component';
 import {DragulaModule} from "ng2-dragula";
 import { ClientGrandAuthoritiesComponent } from './client-control/client-grand-authorities/client-grand-authorities.component';
+import { ClientResourcesComponent } from './client-control/client-resources/client-resources.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -16,7 +19,8 @@ import { ClientGrandAuthoritiesComponent } from './client-control/client-grand-a
     EditClientAttributesComponent,
     ClientScopesComponent,
     ClientRedirectUrisComponent,
-    ClientGrandAuthoritiesComponent
+    ClientGrandAuthoritiesComponent,
+    ClientResourcesComponent
   ],
   exports: [
     ClientDetailsComponent,
@@ -24,11 +28,14 @@ import { ClientGrandAuthoritiesComponent } from './client-control/client-grand-a
     EditClientAttributesComponent,
     ClientScopesComponent,
     ClientRedirectUrisComponent,
-    ClientGrandAuthoritiesComponent
+    ClientGrandAuthoritiesComponent,
+    ClientResourcesComponent
   ],
   imports: [
     CommonModule,
-    DragulaModule.forRoot()
+    DragulaModule.forRoot(),
+    ReactiveFormsModule,
+    NgbModule
   ]
 })
 export class ClientControlModule {
