@@ -86,15 +86,15 @@ export class ClientService {
 
 
   updateClientResources(realm: string, client_id: string, clientResourcesModel: ClientResourcesModel) {
-    return this.http.patch<any>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/resource/`, clientResourcesModel);
+    return this.http.patch<any>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/resources/`, clientResourcesModel);
   }
 
   resourcesInfo(realm: string, client_id: string) {
-    return this.http.get<ClientResourcesModel[]>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/resource/`);
+    return this.http.get<ClientResourcesModel[]>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/resources/`);
   }
 
   availableResourcesInfo(realm: string, client_id: string) {
-    return this.http.get<ClientResourcesModel[]>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/available-resource/`);
+    return this.http.get<ClientResourcesModel[]>(`${environment.apiUrl}/admin/${realm}/client/${client_id}/available-resources/`);
   }
 
 }

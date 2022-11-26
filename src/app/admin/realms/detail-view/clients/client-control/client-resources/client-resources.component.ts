@@ -34,6 +34,7 @@ export class ClientResourcesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.client_id)
     this.clientService.resourcesInfo(this.realm, this.client_id)
       .subscribe(
         data => {
