@@ -14,7 +14,7 @@
     </thead>
     <tbody>
     <tr *ngFor="let user of model_data">
-      <td><a><ngb-highlight [result]="user.uuid" (click)="openUserPage(user.uuid)"  class="btn"></ngb-highlight></a></td>
+      <td><a><ngb-highlight [result]="user.uuid" (click)="openUserPage(user.uuid)"></ngb-highlight></a></td>
       <td>{{user.realmId}}</td>
       <td>{{user.firstName+" "+user.lastName}}</td>
       <td><ngb-highlight [result]="user.username"></ngb-highlight></td>

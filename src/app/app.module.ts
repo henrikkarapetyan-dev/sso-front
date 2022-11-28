@@ -1,4 +1,4 @@
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -26,8 +26,8 @@ import {NotFoundComponent} from './not-found/not-found.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule,
     AppRoutingModule,
-    NgbModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

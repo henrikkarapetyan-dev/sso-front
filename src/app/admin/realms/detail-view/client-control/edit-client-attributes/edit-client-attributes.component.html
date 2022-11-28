@@ -1,0 +1,52 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">New Client Attribute</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formGroup" (ngSubmit)="submitForm(modal)">
+      <div class="mb-3">
+        <label for="name" >Name</label>
+        <div class="input-group">
+          <div *ngIf="submitted && formControl['name'].errors" class="text-danger">
+            <div *ngIf="formControl['name'].errors['required']">Name is required.</div>
+          </div>
+          <input id="name" class="form-control" formControlName="name">
+        </div>
+        <label for="text" >Text</label>
+        <div class="input-group">
+          <div *ngIf="submitted && formControl['text'].errors" class="text-danger">
+            <div *ngIf="formControl['text'].errors['required']">Text is required.</div>
+          </div>
+          <input id="text" class="form-control" formControlName="text">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-outline-dark" >Save</button>
+    </form>
+  </div>
+
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add Client Attribute</button>
+
+<form>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Text</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let caim of model_data">
+      <td><ngb-highlight [result]="caim.name"></ngb-highlight></td>
+      <td><ngb-highlight [result]="caim.text"></ngb-highlight></td>
+      <td>
+        <a (click)="delete(caim.uuid)" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <app-pagination [service]="clientAdditionalInformationService" (model_data)="setModelData($event)"></app-pagination>
+</form>

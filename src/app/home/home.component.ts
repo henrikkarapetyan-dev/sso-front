@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../_services/authentication.service";
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-admin-client-main-page',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })

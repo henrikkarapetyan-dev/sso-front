@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://sso.net:9000/sso',
+  apiUrl: 'https://sso.net:9001/sso',
   realm: 'admin',
   client_id:'simple_client',
   client_secret: 'password',

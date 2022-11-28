@@ -5,7 +5,6 @@ import {GlobalStateService} from "./global-state.service";
 import {PaginatedModel} from "../_models/paginated.model";
 import {UserModel} from "../_models/user.model";
 import {UserPasswordModel} from "../_models/user-password.model";
-import {ClientScopesModel} from "../_models/client-scopes.model";
 import {UserRolesModel} from "../_models/user-roles.model";
 
 @Injectable({
@@ -38,7 +37,7 @@ export class UserService {
     return this.http.delete<UserModel>(`${environment.apiUrl}/admin/${realm}/user/${userId}`);
   }
 
-  update(realm: string, user_id: string, data:UserModel) {
+  update(realm: string, user_id: string, data: UserModel) {
     return this.http.put<UserModel>(`${environment.apiUrl}/admin/${realm}/user/${user_id}`, data);
   }
 
