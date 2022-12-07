@@ -21,7 +21,6 @@ export class UserControlComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     private userService: UserService,
     private globalStateService: GlobalStateService,
-    private fb: FormBuilder
   ) {
     this.subscription = activateRoute.params.subscribe(params => {
       this.globalStateService.realm = params['realm']

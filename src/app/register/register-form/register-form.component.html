@@ -1,0 +1,65 @@
+<div class="container">
+  <form [formGroup]="formGroup" (ngSubmit)="submitForm()">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address </label>
+      <div class="input-group">
+        <div *ngIf="submitted && formControl['email'].errors" class="text-danger">
+          <div *ngIf="formControl['email'].errors['required']">Email is required.</div>
+        </div>
+        <input id="email" type="email" class="form-control" formControlName="email"
+               [value]="formControl['email'].value">
+      </div>
+    </div>
+    <div class="mb-3" *ngIf="!authService.isLoggedIn">
+      <label for="username" class="form-label">Username</label>
+      <div class="input-group">
+        <div *ngIf="submitted && formControl['username'].errors" class="text-danger">
+          <div *ngIf="formControl['username'].errors['required']">Username is required.</div>
+        </div>
+        <input id="username" type="text" class="form-control" formControlName="username"
+               [value]="user_data.username">
+      </div>
+    </div>
+    <div class="mb-3" *ngIf="!authService.isLoggedIn">
+      <label for="phone" class="form-label">Phone</label>
+      <div class="input-group">
+        <div *ngIf="submitted && formControl['phone'].errors" class="text-danger">
+          <div *ngIf="formControl['phone'].errors['required']">Phone is required.</div>
+        </div>
+        <input id="phone" type="text" class="form-control" formControlName="phone" [value]="user_data.phone">
+      </div>
+    </div>
+    <div class="mb-3" *ngIf="!authService.isLoggedIn">
+      <label for="password" class="form-label">Password</label>
+      <div class="input-group">
+        <div *ngIf="submitted && formControl['password'].errors" class="text-danger">
+          <div *ngIf="formControl['password'].errors['required']">Password is required.</div>
+        </div>
+        <input id="password" type="password" class="form-control" formControlName="password"
+               [value]="user_data.password">
+      </div>
+    </div>
+    <div class="mb-3" *ngIf="!authService.isLoggedIn">
+      <label for="firstName" class="form-label">First Name</label>
+      <div class="input-group">
+        <div *ngIf="submitted && formControl['firstName'].errors" class="text-danger">
+          <div *ngIf="formControl['firstName'].errors['required']">FirstName is required.</div>
+        </div>
+        <input id="firstName" type="text" class="form-control" formControlName="firstName"
+               [value]="user_data.firstName">
+      </div>
+    </div>
+    <div class="mb-3" *ngIf="!authService.isLoggedIn">
+      <label for="lastName" class="form-label">Last Name</label>
+      <div class="input-group">
+        <div *ngIf="submitted && formControl['lastName'].errors" class="text-danger">
+          <div *ngIf="formControl['lastName'].errors['required']">LastName is required.</div>
+        </div>
+        <input id="lastName" type="text" class="form-control" formControlName="lastName" [value]="user_data.lastName">
+      </div>
+    </div>
+    <div class="align-content-center" style="text-align: center">
+    <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+  </form>
+</div>

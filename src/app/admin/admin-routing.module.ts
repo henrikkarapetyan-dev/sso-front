@@ -14,6 +14,7 @@ import {ResourcesComponent} from "./realms/detail-view/resources/resources.compo
 import {ClientControlComponent} from "./realms/detail-view/client-control/main-page/client-control.component";
 import {ClientAddComponent} from "./realms/detail-view/client-control/client-add/client-add.component";
 import {ClientsComponent} from "./realms/detail-view/client-control/client-list/clients.component";
+import {RealmSocialNetworksComponent} from "./realms/detail-view/realm-social-networks/realm-social-networks.component";
 
 const routes: Routes = [
   {path: 'users', component: UsersComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: ':realm/detail-view', component: DetailViewComponent},
   {path: ':realm/users', component: RealmUserComponent},
   {path: ':realm/clients', component: ClientsComponent},
+  {path: ':realm/social-networks', component: RealmSocialNetworksComponent},
   {path: ':realm/user/add', component: AddUserComponent},
   {path: ':realm/client/add', component: ClientAddComponent},
   {path: ':realm/options', component: OptionsComponent},
@@ -33,7 +35,6 @@ const routes: Routes = [
     loadChildren: () => import('./realms/detail-view/user-control/user-control-routing.module').then(m => m.UserControlRoutingModule),
     canActivate: [AuthGuard]
   },
-
   {
     path: ':realm/client-control/:id',
     component: ClientControlComponent,

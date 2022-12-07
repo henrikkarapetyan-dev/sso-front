@@ -5,6 +5,7 @@ import {EditUserAttributesComponent} from './edit-user-attributes/edit-user-attr
 import {UserRolesComponent} from './user-roles/user-roles.component';
 import {DragulaModule} from "ng2-dragula";
 import {CommonModule} from "@angular/common";
+import {ClientControlRoutingModule} from "../client-control/client-control-routing.module";
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {CommonModule} from "@angular/common";
   ],
   imports: [
     CommonModule,
-    DragulaModule.forRoot()
+    DragulaModule.forRoot(),
+    ClientControlRoutingModule
   ]
 })
 export class UserControlModule {

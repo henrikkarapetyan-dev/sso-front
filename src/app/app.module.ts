@@ -12,6 +12,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {HomeComponent} from "./home/home.component";
 import {NavbarComponent} from './_components/main-page/navbar/navbar.component';
 import {NotFoundComponent} from './not-found/not-found.component';
+import { RegisterComponent } from './register/register.component';
+import { RegisterFormComponent } from './register/register-form/register-form.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import {NotFoundComponent} from './not-found/not-found.component';
     HomeComponent,
     NavbarComponent,
     NotFoundComponent,
+    RegisterComponent,
+    RegisterFormComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,

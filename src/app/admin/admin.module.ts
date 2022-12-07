@@ -19,6 +19,7 @@ import {ResourcesComponent} from './realms/detail-view/resources/resources.compo
 import {ClientControlComponent} from "./realms/detail-view/client-control/main-page/client-control.component";
 import {SharedModuleModule} from "./shared-module/shared-module.module";
 import {ClientControlModule} from "./realms/detail-view/client-control/client-control.module";
+import { RealmSocialNetworksComponent } from './realms/detail-view/realm-social-networks/realm-social-networks.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {ClientControlModule} from "./realms/detail-view/client-control/client-co
     AddUserComponent,
     UserControlComponent,
     ClientControlComponent,
-    ResourcesComponent
+    ResourcesComponent,
+    RealmSocialNetworksComponent
   ],
   imports: [
     CommonModule,

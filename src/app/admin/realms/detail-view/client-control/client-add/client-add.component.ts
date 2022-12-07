@@ -28,7 +28,6 @@ export class ClientAddComponent implements OnInit {
 
     this.formGroup = this.fb.group({
         name: ["", [Validators.required]],
-        text: ["", [Validators.required]],
       }
     )
   }
