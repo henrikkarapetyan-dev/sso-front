@@ -15,6 +15,10 @@ import {ClientControlComponent} from "./realms/detail-view/client-control/main-p
 import {ClientAddComponent} from "./realms/detail-view/client-control/client-add/client-add.component";
 import {ClientsComponent} from "./realms/detail-view/client-control/client-list/clients.component";
 import {RealmSocialNetworksComponent} from "./realms/detail-view/realm-social-networks/realm-social-networks.component";
+import {EditComponent} from "./realms/detail-view/realm-social-networks/edit/edit.component";
+import {
+  AddRealmSocialNetworkComponent
+} from "./realms/detail-view/realm-social-networks/add-realm-social-network/add-realm-social-network.component";
 
 const routes: Routes = [
   {path: 'users', component: UsersComponent},
@@ -26,6 +30,8 @@ const routes: Routes = [
   {path: ':realm/users', component: RealmUserComponent},
   {path: ':realm/clients', component: ClientsComponent},
   {path: ':realm/social-networks', component: RealmSocialNetworksComponent},
+  {path: ':realm/social-networks/edit/:social_id', component: EditComponent},
+  {path: ':realm/social-networks/add/:social_id', component: AddRealmSocialNetworkComponent},
   {path: ':realm/user/add', component: AddUserComponent},
   {path: ':realm/client/add', component: ClientAddComponent},
   {path: ':realm/options', component: OptionsComponent},

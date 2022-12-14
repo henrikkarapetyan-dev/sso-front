@@ -1,17 +1,18 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" routerLink="/admin">Admin</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto float-md-left">
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link" routerLink="/admin">Admin</a>-->
-<!--      </li>-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link" routerLink="/admin/realms">Realms</a>-->
-<!--      </li>-->
+      <!--      <li class="nav-item">-->
+      <!--        <a class="nav-link" routerLink="/admin">Admin</a>-->
+      <!--      </li>-->
+      <!--      <li class="nav-item">-->
+      <!--        <a class="nav-link" routerLink="/admin/realms">Realms</a>-->
+      <!--      </li>-->
     </ul>
     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
       <li class="nav-item" *ngIf="!authService.isLoggedIn">
@@ -21,7 +22,18 @@
         <a class="nav-link" routerLink="/register">Register</a>
       </li>
       <li class="nav-item" *ngIf="authService.isLoggedIn">
-        <a class="nav-link btn" (click)="logout()">Logout({{currentUserFullName}})</a>
+      </li>
+      <li ngbDropdown class="nav-item" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" id="dropdownBasic1" ngbDropdownToggle>
+          {{currentUserFullName}}
+        </a>
+        <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownBasic1">
+          <li><a class="dropdown-item" routerLink="/user-profile">Profile</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="nav-link btn" (click)="logout()">Logout</a></li>
+        </ul>
       </li>
     </ul>
   </div>

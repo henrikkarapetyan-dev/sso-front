@@ -1,5 +1,66 @@
-<p>register works!</p>
 <div class="container">
-  <a href="https://sso.net:9000/sso/realms/admin/social-network-register/facebook/">Register by Facebook</a>
-  <a href="https://sso.net:9000/sso/realms/admin/social-network-register/google/">Register by Google</a>
+
+  <form [formGroup]="formGroup" (ngSubmit)="submitForm()">
+
+    <div class="mb-3">
+      <label for="firstName">First Name</label>
+      <div class="input-group">
+        <div *ngIf="submitted && formControl['firstName'].errors" class="text-danger">
+          <div *ngIf="formControl['firstName'].errors['required']">Firstname is required</div>
+        </div>
+        <input id="firstName" class="form-control" formControlName="firstName">
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="lastName">Last Name</label>
+      <div class="input-group">
+        <div *ngIf="submitted && formControl['lastName'].errors" class="text-danger">
+          <div *ngIf="formControl['lastName'].errors['required']">Lastname is required</div>
+        </div>
+        <input id="lastName" class="form-control" formControlName="lastName">
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="firstName">Email</label>
+      <div class="input-group">
+        <div *ngIf="submitted && formControl['email'].errors" class="text-danger">
+          <div *ngIf="formControl['email'].errors['email']">Email is required</div>
+        </div>
+        <input id="email" type="email" class="form-control" formControlName="email">
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="password">Password</label>
+      <div class="input-group">
+        <div *ngIf="submitted && formControl['password'].errors" class="text-danger">
+          <div *ngIf="formControl['password'].errors['required']">Firstname is required</div>
+        </div>
+        <input id="password" type="password" class="form-control" formControlName="password">
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="firstName">Password Repeat</label>
+      <div class="input-group">
+        <div *ngIf="submitted && formControl['password_repeat'].errors" class="text-danger">
+          <div *ngIf="formControl['password_repeat'].errors['required']">Password is required</div>
+        </div>
+        <input id="password_repeat" class="form-control" formControlName="password_repeat">
+      </div>
+    </div>
+    <div class="buttons text-center">
+      <button class="btn btn-success" type="submit">Register</button>
+    </div>
+
+  </form>
+  <div class="row">
+    <div class="col-md-1" *ngFor="let item of realmSocialNetworks">
+      <a class="btn btn-primary-outline"
+         href="{{apiUrl}}/realms/{{realm}}/social-network-register/{{item.socialId}}/">
+        <img src="{{item.iconUrl}}" width="15" height="15">
+        {{item.socialId | titlecase}}
+      </a>
+    </div>
+  </div>
 </div>
+
+

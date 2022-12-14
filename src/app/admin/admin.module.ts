@@ -20,6 +20,8 @@ import {ClientControlComponent} from "./realms/detail-view/client-control/main-p
 import {SharedModuleModule} from "./shared-module/shared-module.module";
 import {ClientControlModule} from "./realms/detail-view/client-control/client-control.module";
 import { RealmSocialNetworksComponent } from './realms/detail-view/realm-social-networks/realm-social-networks.component';
+import {EditComponent} from './realms/detail-view/realm-social-networks/edit/edit.component';
+import { AddRealmSocialNetworkComponent } from './realms/detail-view/realm-social-networks/add-realm-social-network/add-realm-social-network.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { RealmSocialNetworksComponent } from './realms/detail-view/realm-social-
     UserControlComponent,
     ClientControlComponent,
     ResourcesComponent,
-    RealmSocialNetworksComponent
+    RealmSocialNetworksComponent,
+    EditComponent,
+    AddRealmSocialNetworkComponent
   ],
   imports: [
     CommonModule,

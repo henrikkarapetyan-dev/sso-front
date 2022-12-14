@@ -1,1 +1,23 @@
-<p>realm-social-networks works!</p>
+<div class="row">
+  <div class="col" [hidden]="notConfiguredProviders!=null && !notConfiguredProviders.length">
+    <div ngbDropdown class="d-inline-block">
+      <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+        Add new Social provider
+      </button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <a ngbDropdownItem *ngFor="let item of notConfiguredProviders"
+           routerLink="/admin/{{realm}}/social-networks/add/{{item.socialId}}">{{item.socialId | titlecase}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="card col-md-2" *ngFor="let item of realmSocialNetworks">
+    <img src="{{item.iconUrl}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{item.socialId}}</h5>
+      <a routerLink="/admin/{{realm}}/social-networks/edit/{{item.socialId}}" class="btn btn-primary">Edit</a>
+      <a class="btn btn-danger" (click)="delete(item.socialId)">delete</a>
+    </div>
+  </div>
+</div>

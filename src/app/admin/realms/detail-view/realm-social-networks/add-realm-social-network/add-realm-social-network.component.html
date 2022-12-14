@@ -1,0 +1,46 @@
+<form [formGroup]="formGroup" (ngSubmit)="submitForm()">
+
+  <div class="mb-3">
+    <label for="appId">App Id</label>
+    <div class="input-group">
+      <div *ngIf="submitted && formControl['appId'].errors" class="text-danger">
+        <div *ngIf="formControl['appId'].errors['required']">App Id is required.</div>
+      </div>
+      <input id="appId" class="form-control" formControlName="appId">
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="appSecret">App Secret</label>
+    <div class="input-group">
+      <div *ngIf="submitted && formControl['appSecret'].errors" class="text-danger">
+        <div *ngIf="formControl['appSecret'].errors['required']">appSecret is required.</div>
+      </div>
+      <input id="appSecret" class="form-control" formControlName="appSecret">
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="scopes">Scopes</label>
+    <div class="input-group">
+      <div *ngIf="submitted && formControl['scopes'].errors" class="text-danger">
+        <div *ngIf="formControl['scopes'].errors['required']">scopes is required.</div>
+      </div>
+      <input id="scopes" class="form-control" formControlName="scopes">
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="status">Status</label>
+    <div class="input-group">
+      <div *ngIf="submitted && formControl['status'].errors" class="text-danger">
+        <div *ngIf="formControl['status'].errors['required']">Status is required.</div>
+      </div>
+      <input id="status" class="form-control" formControlName="status">
+    </div>
+  </div>
+
+  <div class="buttons text-center">
+    <button class="btn btn-success" type="submit">Save</button>
+  </div>
+</form>
